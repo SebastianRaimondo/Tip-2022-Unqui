@@ -4,12 +4,13 @@ const auth = require("../../middleware/auth");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 const { body, validationResult } = require("express-validator");
+const { send } = require("express/lib/response");
 
-router.get('/me', auth, async (req, res) => {
+router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
-      'user',
-      ['name','avatar']
+      "user",
+      ["name", "avatar"]
     );
 
     if (!profile) {
@@ -69,7 +70,7 @@ router.post(
       profileFields.skills = skills.split(",").map((sk) => sk.trim());
     }
 
-   //console.log(profileFields.social.twitter);
+    //console.log(profileFields.social.twitter);
     //res.send('Anido cajeta');
 
     // Build social object
@@ -89,23 +90,55 @@ router.post(
           { $set: profile },
           { new: true }
         );
-        
-     
+
         return res.json(profile);
       }
 
       //Create
-        profile = new Profile(profileFields);
-       // console.log(profileFields.social.twitter);
-        await profile.save();
-        res.json(profile);   
-
-   
+      profile = new Profile(profileFields);
+      // console.log(profileFields.social.twitter);
+      await profile.save();
+      res.json(profile);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
     }
   }
 );
+
+//Get all profiles
+
+router.get("/", async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    res.json(profiles);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+//Get profile by id
+
+router.get("/user/:user_id", async (req, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user: req.params.user_id,
+    }).populate("user", ["name", "avatar"]);
+
+    if (!profile) {
+      return send
+        .status(400)
+        .json({ msg: 'Profile not found' });
+    }
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    if(err.kind == 'ObjectId'){
+      return res.status(400).json({msg : 'Profile not found'})
+    }
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;

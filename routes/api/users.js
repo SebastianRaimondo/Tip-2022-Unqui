@@ -60,6 +60,9 @@ router.post('/', [
              }
          }
 
+         console.log(payload)
+
+
          jwt.sign(payload, 
             config.get('jwtSecret'),
             {expiresIn: 360000},
