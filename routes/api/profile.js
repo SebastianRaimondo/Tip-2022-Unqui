@@ -3,7 +3,7 @@ const router = express.Router();
 const auth = require("../../middleware/auth");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-const { check, validationResult } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 
 router.get('/me', auth, async (req, res) => {
   try {
@@ -30,9 +30,9 @@ router.post(
   [
     auth,
     [
-      check("status", "Status is riquired").not().isEmpty(),
+      body("status", "Status is riquired").not().isEmpty(),
 
-      check("skills", "Skills is required").not().isEmpty(),
+      body("skills", "Skills is required").not().isEmpty(),
     ],
   ],
   async (req, res) => {
