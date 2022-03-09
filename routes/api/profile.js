@@ -127,16 +127,35 @@ router.get("/user/:user_id", async (req, res) => {
     }).populate("user", ["name", "avatar"]);
 
     if (!profile) {
-      return send
-        .status(400)
-        .json({ msg: 'Profile not found' });
+      return send.status(400).json({ msg: "Profile not found" });
     }
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    if(err.kind == 'ObjectId'){
-      return res.status(400).json({msg : 'Profile not found'})
+    if (err.kind == "ObjectId") {
+      return res.status(400).json({ msg: "Profile not found" });
     }
+    res.status(500).send("Server error");
+  }
+});
+
+//Delete profile, user and posts
+
+router.delete("/", auth, async (req, res) => {
+  try {
+    //Remove profile
+    await Profile.findOneAndRemove({
+      user: req.user.id,
+    });
+
+    //Remove user
+    await User.findOneAndRemove({
+      _id: req.user.id,
+    });
+
+    res.json({ msg: "User removed" });
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server error");
   }
 });
