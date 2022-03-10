@@ -15,11 +15,14 @@ router.post(
     }
     try {
       const user = await User.findById(req.user.id).select("-password");
-
+      
+      //payload decoded
      // console.log(req.user);
      // console.log(req.body.text);
      // console.log(user.name);
      // console.log(user.avatar);
+
+      //console.log(req);
 
       const newPost = new Post({
         text: req.body.text,
@@ -38,5 +41,66 @@ router.post(
     }
   }
 );
+
+//Get all posts
+router.get('/',auth, async (req, res) => {
+    try {
+
+      //Use "sort({date : -1})" to get the most recent post
+      const posts = await Post.find().sort({date : -1})
+      res.json(posts);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  });
+  
+//Get a post by id
+router.get("/:id", auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ msg: "Post not found" });
+    }
+
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Post not found" });
+    }
+    res.status(500).send("Server error");
+  }
+});
+  
+//Delete a post using id
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const post = await Post.findOne({ _id: req.params.id });
+
+    if (!post) {
+      return res.status(404).json({ msg: "Post not found" });
+    }
+
+    // console.log(post.user._id.toString())
+    // console.log(req.user.id )
+
+    //Checking if the user who wants to delete the post is the creator of that post
+    if (post.user._id.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "User not authorized" });
+    }
+
+    await Post.findOneAndRemove({ _id: req.params.id });
+
+    res.json({ msg: "Post removed" });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Post not found" });
+    }
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;
