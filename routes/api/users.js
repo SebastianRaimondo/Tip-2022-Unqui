@@ -60,7 +60,7 @@ router.post('/', [
              }
          }
 
-         console.log(payload)
+         //console.log(payload)
 
 
          jwt.sign(payload, 
