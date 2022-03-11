@@ -99,8 +99,8 @@ router.put('/likes/:id', auth, async (req, res) => {
 
     function postAlreadyLiked() {
       return post.likes
-        .map((like) => like.user)
-        .toString()
+        .map(like => like.user
+        .toString())
         .includes(req.user.id);
     }
 
@@ -126,8 +126,8 @@ router.put('/unlikes/:id', auth, async (req, res) => {
   
       function postAlreadyLiked() {
         return post.likes
-          .map((like) => like.user)
-          .toString()
+          .map(like => like.user
+          .toString())
           .includes(req.user.id);
       }
   
