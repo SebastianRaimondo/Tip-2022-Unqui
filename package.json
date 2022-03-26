@@ -4,15 +4,15 @@
   "description": "Red social para desarrolladores de soft",
   "main": "server.js",
   "scripts": {
-
-   "client": "npm start --prefix client",
-   "dev" : "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server",
     "server": "nodemon server"
   },
   "author": "Pedro Anides rey del fucking pueblo lgbt de Belgrano",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.7",
     "express": "^4.17.3",
@@ -20,7 +20,9 @@
     "gravatar": "^1.8.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4",
-    "request": "^2.88.2"
+    "react-redux": "^7.2.6",
+    "request": "^2.88.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",

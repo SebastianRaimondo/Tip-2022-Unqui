@@ -24,6 +24,7 @@ const Login = () => {
   //console.log(password2)
 
   return (
+    
     <section className='container'>
       <h1 className='large text-primary'>Ingresar</h1>
       <p className='lead'>
