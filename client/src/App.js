@@ -4,9 +4,9 @@ import Navbar from './component/layout/Navbar'
 import Landing from './component/layout/Landing'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Login from './component/auth/Login'
-import Register from './component/auth/Register'
+import {Register} from './component/auth/Register'
 import {Provider} from 'react-redux';
-import store from './store'
+import {store} from './store'
 import Alert from './component/layout/Alert'
 
 const App = () => (
@@ -16,10 +16,10 @@ const App = () => (
     <Fragment>
     <Navbar />
      
-    
+    <Alert/>
     <section  className="container">
       
-       <Alert/> 
+    
        </section>
       
      
