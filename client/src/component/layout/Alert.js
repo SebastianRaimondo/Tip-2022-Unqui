@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectAlert } from "../../feature/alertSlice";
+import { selectAlert } from "../../features/alertSlice";
 
 const Alert = () =>{
 

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import alertReducer from './feature/alertSlice'
+import alertReducer from './features/alertSlice'
 
 
 export const store = configureStore({

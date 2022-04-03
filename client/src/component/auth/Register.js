@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAlertAction } from "../../actions/alert";
-import { deleteAlertAction } from "../../actions/deleteAlertAfterTime";
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -22,11 +21,8 @@ export const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      const action = setAlertAction("El leiva es el rey", "danger");
-      dispatch(
-        action,
-        setTimeout(() => dispatch(deleteAlertAction(action.payload.id)), 5000)
-      );
+   
+      dispatch(setAlertAction("El leiva es el rey", "danger", 10000));
 
     } else {
       console.log("hasta aca anda");

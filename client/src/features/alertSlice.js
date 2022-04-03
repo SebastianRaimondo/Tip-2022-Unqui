@@ -11,7 +11,7 @@ export const alertSlice = createSlice({
     },
 
     deleteAlert: (state, action) =>
-      state.filter((a) => a.payload.id !== action.payload.id),
+      state.filter((a) => a.payload.id !== action.payload),
   },
 });
 
