@@ -5,7 +5,7 @@ import { selectAlert } from "../../features/alertSlice";
 const Alert = () =>{
 
 const alerts = useSelector(selectAlert);
-console.log(alerts)
+//console.log(alerts)
  return (
   alerts !== null &&
   alerts.length > 0 &&

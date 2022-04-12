@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAlertAction } from "../../actions/alert";
+import { register } from "../../actions/auth";
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,10 @@ export const Register = () => {
     e.preventDefault();
     if (password !== password2) {
    
-      dispatch(setAlertAction("El leiva es el rey", "danger", 10000));
+      dispatch(setAlertAction("El leiva es el rey", "danger",7000));
 
     } else {
-      console.log("hasta aca anda");
+     dispatch(register({name,email,password}))
     }
   };
 
@@ -43,7 +44,7 @@ export const Register = () => {
             name='name'
             onChange={(e) => onChange(e)}
             value={name}
-            required
+           
           />
         </div>
         <div className='form-group'>
@@ -52,7 +53,7 @@ export const Register = () => {
             placeholder='Correo electronico'
             onChange={(e) => onChange(e)}
             value={email}
-            required
+          
             name='email'
           />
 
@@ -69,7 +70,7 @@ export const Register = () => {
             minLength='6'
             onChange={(e) => onChange(e)}
             value={password}
-            required
+            
           />
         </div>
         <div className='form-group'>
@@ -80,7 +81,7 @@ export const Register = () => {
             minLength='6'
             onChange={(e) => onChange(e)}
             value={password2}
-            required
+           
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Registrarse' />

@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import {Link} from 'react-router-dom'
+import { login } from "../../actions/auth";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,7 +18,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-         console.log("Leiva toca cubia");
+      dispatch(login(email,password))
   };
 
   //console.log(name)

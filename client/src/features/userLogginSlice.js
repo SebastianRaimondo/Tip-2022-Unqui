@@ -1,38 +1,64 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
-
-
-  token : localStorage.getItem('token'),
-
-  isAuthenticated : null,
-  loading : true,
-  user : null
-
-
+  token: localStorage.getItem("token"),
+  isAuthenticated: null,
+  loading: true,
+  user: null,
 };
 
 export const userlogginSlice = createSlice({
-  name: "user",
+  name: "auth",
   initialState,
   reducers: {
-
     registerSuccess: (state, action) => {
-
-
-      localStorage.setItem('token', action.payload.token)
-
-      state.payload
-      state.isAuthenticated = true,
-      state.loading = false
+      localStorage.setItem("token", action.payload.token);
+      state.token= action.payload.token;
+      state.isAuthenticated = true;
+      state.loading = false;
     },
 
-  ///  deleteAlert: (state, action) =>
-  ///    state.filter((a) => a.payload.id !== action.payload.id),
+
+    loginSuccess: (state, action) => {
+      localStorage.setItem("token", action.payload.token);
+      state.token= action.payload.token;
+      state.isAuthenticated = true;
+      state.loading = false;
+    },
+
+    registerFail: (state, action) => {
+      localStorage.removeItem("token");
+      state.token = null;
+      state.isAuthenticated = false;
+      state.loading = false;
+    },
 
 
+
+    loginFail: (state, action) => {
+      localStorage.removeItem("token");
+      state.token = null;
+      state.isAuthenticated = false;
+      state.loading = false;
+    },
+
+    userLoaded: (state, action) => {
+      state.isAuthenticated = true;
+      state.loading = false;
+      state.user = action.payload;
+    },
+
+    authError: (state, action) => {
+      localStorage.removeItem("token");
+      state.token = null;
+      state.isAuthenticated = false;
+      state.loading = false;
+    },
+    
   },
 });
 
-export default alertSlice.reducer;
-export const selectAlert = (state) => state.alert;
+export default userlogginSlice.reducer;
+export const { userLoaded } = userlogginSlice.actions
+
