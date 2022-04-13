@@ -61,4 +61,5 @@ export const userlogginSlice = createSlice({
 
 export default userlogginSlice.reducer;
 export const { userLoaded } = userlogginSlice.actions
+export const selectAuthState = (state) => state.auth.isAuthenticated;
 

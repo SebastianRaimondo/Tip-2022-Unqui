@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link,Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { setAlertAction } from "../../actions/alert";
 import { register } from "../../actions/auth";
+import { selectAuthState } from "../../features/userLogginSlice";
 
 export const Register = () => {
+  const isAuthenticated = useSelector(selectAuthState);
+ // console.log(isAuthenticated)
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
@@ -23,12 +26,17 @@ export const Register = () => {
     e.preventDefault();
     if (password !== password2) {
    
-      dispatch(setAlertAction("El leiva es el rey", "danger",7000));
+      dispatch(setAlertAction("Las contraseñas no coinciden", "danger",7000));
 
     } else {
      dispatch(register({name,email,password}))
     }
   };
+
+ // console.log(isAuthenticatedState)
+ if(isAuthenticated){
+   return  <Navigate replace to="/dashboard"/>
+  }
 
   return (
     <section className='container'>

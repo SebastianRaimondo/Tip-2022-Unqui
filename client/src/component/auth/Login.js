@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 import { login } from "../../actions/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuthState } from "../../features/userLogginSlice";
 
 const Login = () => {
+  const isAuthenticated = useSelector(selectAuthState);
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
@@ -21,6 +23,12 @@ const Login = () => {
       dispatch(login(email,password))
   };
 
+
+  //const isAuthenticated = () => true
+
+  if(isAuthenticated){
+    return  <Navigate replace to="/dashboard"/>
+   }
   //console.log(name)
   //console.log(email)
   //console.log(password)
@@ -40,7 +48,7 @@ const Login = () => {
             placeholder='Correo electronico'
             onChange={(e) => onChange(e)}
             value={email}
-            required
+            
             name='email'
           />
         </div>
@@ -52,7 +60,7 @@ const Login = () => {
             minLength='6'
             onChange={(e) => onChange(e)}
             value={password}
-            required
+            
           />
         </div>
 
