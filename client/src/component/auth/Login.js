@@ -24,7 +24,7 @@ const Login = () => {
   };
 
 
-  //const isAuthenticated = () => true
+
 
   if(isAuthenticated){
     return  <Navigate replace to="/dashboard"/>

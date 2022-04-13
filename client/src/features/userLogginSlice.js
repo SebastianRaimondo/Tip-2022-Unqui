@@ -35,8 +35,15 @@ export const userlogginSlice = createSlice({
     },
 
 
-
+    
     loginFail: (state, action) => {
+      localStorage.removeItem("token");
+      state.token = null;
+      state.isAuthenticated = false;
+      state.loading = false;
+    },
+
+    logout: (state, action) => {
       localStorage.removeItem("token");
       state.token = null;
       state.isAuthenticated = false;
@@ -60,6 +67,7 @@ export const userlogginSlice = createSlice({
 });
 
 export default userlogginSlice.reducer;
-export const { userLoaded } = userlogginSlice.actions
+export const {userLoaded} = userlogginSlice.actions
 export const selectAuthState = (state) => state.auth.isAuthenticated;
+export const selectAuth = (state) => state.auth
 

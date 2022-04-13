@@ -19,7 +19,7 @@ export const register =
         type: "auth/registerSuccess",
         payload: res.data,
       });
-      dispatch(loadUser())
+      dispatch(loadUser());
     } catch (err) {
       const errors = err.response.data.errors;
 
@@ -62,36 +62,37 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-
-export const login =
-  ( email, password ) =>
-  async (dispatch) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    const body = JSON.stringify({email, password });
-
-    try {
-      const res = await axios.post("api/auth", body, config);
-
-      dispatch({
-        type: "auth/loginSuccess",
-        payload: res.data,
-      });
-
-      dispatch(loadUser())
-    } catch (err) {
-      const errors = err.response.data.errors;
-
-      if (errors) {
-        errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 7000)));
-      }
-
-      dispatch({
-        type: "auth/loginFail",
-      });
-    }
+export const login = (email, password) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
+
+  const body = JSON.stringify({ email, password });
+
+  try {
+    const res = await axios.post("api/auth", body, config);
+
+    dispatch({
+      type: "auth/loginSuccess",
+      payload: res.data,
+    });
+
+    dispatch(loadUser());
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 7000)));
+    }
+
+    dispatch({
+      type: "auth/loginFail",
+    });
+  }
+};
+
+export const logout = () => (dispatch) => {
+  dispatch({ type: "auth/logout" });
+};
