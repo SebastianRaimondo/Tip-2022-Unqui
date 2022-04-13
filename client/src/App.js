@@ -9,6 +9,7 @@ import {Provider} from 'react-redux';
 import {store} from './store'
 import Alert from './component/layout/Alert'
 import { loadUser } from './actions/auth';
+import Dashboard from './component/dashboard/Dashboard';
 
 //if (localStorage.token) {
 //  setAuthToken(localStorage.token);
@@ -26,7 +27,8 @@ const App = () => {
   <Provider store= {store}>
   <Router>
     <Fragment>
-    <Navbar />
+      
+    <Navbar/> 
      
     <Alert/>
     <section  className="container">
@@ -37,11 +39,14 @@ const App = () => {
      
       <Routes>
  
-        <Route exact path='/' element={<Landing />} />
-
+       
         
-        <Route exact path='/register' element={    <Register /> } />
-        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/register' element={<Register/> } />
+      
+        <Route exact path='/login' element={<Login/>} />
+        <Route exact path='/dashboard' element={<Dashboard/>} />
+
+ 
       
 
       </Routes>

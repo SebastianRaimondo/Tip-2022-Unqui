@@ -22,15 +22,15 @@ const Navbar = () => {
   const guestLinks = (
     <ul>
       <li>
-        {" "}
+       
         <Link to='/register'>Register</Link>
       </li>
       <li>
-        {" "}
+      
         <Link to='/login'>Login</Link>
       </li>
       <li>
-        <a href='profiles.html'>Developers</a>
+        <a href='#!'>Developers</a>
       </li>
     </ul>
   );
@@ -45,9 +45,9 @@ const Navbar = () => {
         </Link>
       </h1>
       {!authState.loading && (
-        <Fragment>
+       <div>
           {authState.isAuthenticated ? authLinks : guestLinks}
-        </Fragment>
+          </div>
       )}
     </nav>
   );
