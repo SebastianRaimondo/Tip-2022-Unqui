@@ -56,7 +56,7 @@ export const userlogginSlice = createSlice({
       state.user = action.payload;
     },
 
-    authError: (state, action) => {
+    authErrors: (state, action) => {
       localStorage.removeItem("token");
       state.token = null;
       state.isAuthenticated = false;

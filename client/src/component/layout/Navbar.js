@@ -12,7 +12,7 @@ const Navbar = () => {
     <ul>
       <li>
         <a onClick={() => dispatch(logout())} href='#!'>
-          <i className='fas fa-sign-out-alt'></i>{" "}
+          <i className='fas fa-sign-out-alt'/>{" "}
           <span className='hide-sm'>Logout</span>
         </a>
       </li>
@@ -22,7 +22,6 @@ const Navbar = () => {
   const guestLinks = (
     <ul>
       <li>
-       
         <Link to='/register'>Register</Link>
       </li>
       <li>
