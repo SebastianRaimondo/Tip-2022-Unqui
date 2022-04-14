@@ -4,6 +4,7 @@ import {Link, Navigate} from 'react-router-dom'
 import { login } from "../../actions/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuthState } from "../../features/userLogginSlice";
+import Alert from "../layout/Alert";
 
 const Login = () => {
   const isAuthenticated = useSelector(selectAuthState);
@@ -37,6 +38,7 @@ const Login = () => {
   return (
     
     <section className='container'>
+      <Alert/>
       <h1 className='large text-primary'>Ingresar</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Ingresa a tu cuenta

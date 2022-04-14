@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAlertAction } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import { selectAuthState } from "../../features/userLogginSlice";
+import Alert from "../layout/Alert";
 
 export const Register = () => {
   const isAuthenticated = useSelector(selectAuthState);
@@ -26,7 +27,7 @@ export const Register = () => {
     e.preventDefault();
     if (password !== password2) {
    
-      dispatch(setAlertAction("Las contraseñas no coinciden", "danger",7000));
+      dispatch(setAlertAction("Las contraseñas no coinciden", "danger",2000));
 
     } else {
      dispatch(register({name,email,password}))
@@ -40,6 +41,7 @@ export const Register = () => {
 
   return (
     <section className='container'>
+      <Alert/>
       <h1 className='large text-primary'>Registrarse</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Crea tu cuenta

@@ -24,36 +24,37 @@ const App = () => {
   },[])
   
   return (
+   
 
   <Provider store= {store}>
+      
   <Router>
-    <Fragment>
-
-    <Navbar/> 
-     
-    <Alert/>
-    <section  className="container">
-      
-    
-       </section>
-      
+  <Navbar/>
+ 
+ 
+  
      
       <Routes>
  
        
         
         <Route exact path='/register' element={<Register/> } />
-        <Route exact path='/' element={<Landing/> } />
+        
         <Route exact path='/login' element={<Login/>} />
         <Route exact path='/dashboard' element={<Dashboard/>} />
 
- 
+        <Route exact path='/' element={<Landing/> } />
       
 
       </Routes>
-    </Fragment>
+
+
+
+     
   </Router>
+  
   </Provider>
+
 )};
 
 export default App;
