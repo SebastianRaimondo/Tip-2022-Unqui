@@ -6,7 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAuthState } from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
 
+
 const Login = () => {
+
+ 
   const isAuthenticated = useSelector(selectAuthState);
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -36,9 +39,9 @@ const Login = () => {
   //console.log(password2)
 
   return (
-    
+   
     <section className='container'>
-      <Alert/>
+       <Alert/>
       <h1 className='large text-primary'>Ingresar</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Ingresa a tu cuenta

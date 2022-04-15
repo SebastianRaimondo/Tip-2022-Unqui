@@ -7,7 +7,11 @@ import { register } from "../../actions/auth";
 import { selectAuthState } from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
 
+
 export const Register = () => {
+
+<Alert/>
+
   const isAuthenticated = useSelector(selectAuthState);
  // console.log(isAuthenticated)
   const dispatch = useDispatch();
@@ -27,12 +31,12 @@ export const Register = () => {
     e.preventDefault();
     if (password !== password2) {
    
-      dispatch(setAlertAction("Las contraseñas no coinciden", "danger",2000));
+      dispatch(setAlertAction("Las contraseñas no coinciden", "danger",4000));
 
     } else {
      dispatch(register({name,email,password}))
     }
-  };
+  }; 
 
  // console.log(isAuthenticatedState)
  if(isAuthenticated){
@@ -40,8 +44,8 @@ export const Register = () => {
   }
 
   return (
-    <section className='container'>
-      <Alert/>
+ <div className="container">
+    <Alert/>
       <h1 className='large text-primary'>Registrarse</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Crea tu cuenta
@@ -49,12 +53,13 @@ export const Register = () => {
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input
+          lang='es'
             type='text'
             placeholder='Nombre'
             name='name'
             onChange={(e) => onChange(e)}
             value={name}
-           
+          
           />
         </div>
         <div className='form-group'>
@@ -63,6 +68,7 @@ export const Register = () => {
             placeholder='Correo electronico'
             onChange={(e) => onChange(e)}
             value={email}
+        
           
             name='email'
           />
@@ -80,6 +86,7 @@ export const Register = () => {
             minLength='6'
             onChange={(e) => onChange(e)}
             value={password}
+           
             
           />
         </div>
@@ -91,6 +98,7 @@ export const Register = () => {
             minLength='6'
             onChange={(e) => onChange(e)}
             value={password2}
+          
            
           />
         </div>
@@ -99,6 +107,6 @@ export const Register = () => {
       <p className='my-1'>
         ¿Ya tienes una cuenta? <Link to='/login'>Ingresar</Link>
       </p>
-    </section>
+      </div>
   );
 };

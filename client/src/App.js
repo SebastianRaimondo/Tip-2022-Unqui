@@ -30,26 +30,20 @@ const App = () => {
       
   <Router>
   <Navbar/>
- 
- 
-  
-     
+
+   
       <Routes>
- 
-       
         
+
+      
+
         <Route exact path='/register' element={<Register/> } />
         
         <Route exact path='/login' element={<Login/>} />
         <Route exact path='/dashboard' element={<Dashboard/>} />
-
         <Route exact path='/' element={<Landing/> } />
       
-
       </Routes>
-
-
-
      
   </Router>
   

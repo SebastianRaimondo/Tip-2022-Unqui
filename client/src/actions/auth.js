@@ -12,6 +12,9 @@ export const register =
 
     const body = JSON.stringify({ name, email, password });
 
+
+
+
     try {
       const res = await axios.post("api/users", body, config);
 
@@ -24,7 +27,7 @@ export const register =
       const errors = err.response.data.errors;
 
       if (errors) {
-        errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 7000)));
+        errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 4000)));
       }
 
       dispatch({
@@ -70,6 +73,7 @@ export const login = (email, password) => async (dispatch) => {
   };
 
   const body = JSON.stringify({ email, password });
+  console.log(body)
 
   try {
     const res = await axios.post("api/auth", body, config);
@@ -84,7 +88,7 @@ export const login = (email, password) => async (dispatch) => {
     const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 2000)));
+      errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 4000)));
     }
 
     dispatch({

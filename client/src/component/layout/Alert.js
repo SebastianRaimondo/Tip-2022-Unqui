@@ -10,12 +10,8 @@ const alerts = useSelector(selectAlert);
   alerts !== null &&
   alerts.length > 0 &&
   alerts.map((a) => (
-
-<div  className="container-alert">
-    <div key={a.payload.id} className={` alert alert-${a.payload.alertType}`}>
-     
+    <div key={a.payload.id} className={`alert alert-${a.payload.alertType}`}>
      {a.payload.msg}
-    </div>
     </div>
   )))};
 
