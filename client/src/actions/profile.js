@@ -31,6 +31,6 @@ export const getCurrentProfile = () => async dispatch => {
 export const clearProfile = () => dispatch => {
 
   dispatch({
-    type : 'clearProfile'
+    type : 'profile/clearProfile'
   })
 }
