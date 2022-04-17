@@ -18,7 +18,7 @@ router.get('/me', auth, async (req, res) => {
     );
 
     if (!profile) {
-      return res.status(400).json({ msg: 'There is no profile for this user' });
+      return res.status(400).json({ msg: 'Este usuario no tiene perfil' });
     }
 
     res.json(profile);
@@ -35,9 +35,9 @@ router.post(
   [
     auth,
     [
-      body('status', 'Status is riquired').not().isEmpty(),
+      body('status', 'El status es requerido').not().isEmpty(),
 
-      body('skills', 'Skills is required').not().isEmpty(),
+      body('skills', 'Las habilidades son requeridas').not().isEmpty(),
     ],
   ],
   async (req, res) => {

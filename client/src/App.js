@@ -10,6 +10,7 @@ import { store } from "./store";
 import { loadUser } from "./actions/auth";
 import Dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/routing/PrivateRoute";
+import CreateProfile from "./component/profile-forms/CreateProfile";
 
 
 const App = () => {
@@ -32,6 +33,15 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+
+<Route
+            path='/create-profile'
+            element={
+              <PrivateRoute>
+                <CreateProfile />
               </PrivateRoute>
             }
           />

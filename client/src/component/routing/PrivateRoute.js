@@ -7,8 +7,8 @@ const PrivateRoute = ({ children }) => {
   const auth = useSelector(selectAuth)
   
 
-  console.log(auth)
-  console.log(auth)
+  //console.log(auth)
+  //console.log(auth)
 
 
   if (!auth.isAuthenticated && !auth.loading) {
