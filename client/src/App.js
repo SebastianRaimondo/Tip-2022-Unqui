@@ -11,6 +11,7 @@ import { loadUser } from "./actions/auth";
 import Dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/routing/PrivateRoute";
 
+
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -20,6 +21,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Navbar />
+   
 
         <Routes>
           <Route exact path='/register' element={<Register />} />

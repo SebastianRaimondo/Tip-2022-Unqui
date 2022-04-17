@@ -10,6 +10,12 @@ const Navbar = () => {
 
   const authLinks = (
     <ul>
+<li>
+<Link to='/dasboard'>
+          <i className='fas fa-user'/>{" "}
+          <span className="hide-sm">Dashboard</span>
+        </Link>
+        </li>
       <li>
         <a onClick={() => dispatch(logout())} href='#!'>
           <i className='fas fa-sign-out-alt'/>{" "}
@@ -29,7 +35,7 @@ const Navbar = () => {
         <Link to='/login'>Login</Link>
       </li>
       <li>
-        <a href='#!'>Developers</a>
+        <a href='#!'>Desarrolladores</a>
       </li>
     </ul>
   );
@@ -40,7 +46,7 @@ const Navbar = () => {
     <nav className='navbar bg-dark'>
       <h1>
         <Link to='/'>
-          <i className='fas fa-code'>DevConnector</i>
+          <i className='fas fa-code'>{" "} DevConnector</i>
         </Link>
       </h1>
       {!authState.loading && (

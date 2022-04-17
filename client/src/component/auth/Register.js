@@ -4,7 +4,7 @@ import { Link,Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAlertAction } from "../../actions/alert";
 import { register } from "../../actions/auth";
-import { selectAuthState } from "../../features/userLogginSlice";
+import { selectAuth} from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
 
 
@@ -12,7 +12,7 @@ export const Register = () => {
 
 <Alert/>
 
-  const isAuthenticated = useSelector(selectAuthState);
+  const auth = useSelector(selectAuth);
  // console.log(isAuthenticated)
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -39,7 +39,7 @@ export const Register = () => {
   }; 
 
  // console.log(isAuthenticatedState)
- if(isAuthenticated){
+ if(auth.isAuthenticated){
    return  <Navigate replace to="/dashboard"/>
   }
 

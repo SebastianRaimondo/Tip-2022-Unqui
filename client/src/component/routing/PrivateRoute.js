@@ -1,16 +1,17 @@
 import React from "react";
-import { selectAuthState,selectAuthStateLoading } from "../../features/userLogginSlice";
+import { selectAuth} from "../../features/userLogginSlice";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
-  const isAuthenticated = useSelector(selectAuthState)
-  const isLoading = useSelector(selectAuthStateLoading)
+  const auth = useSelector(selectAuth)
+  
 
-  console.log(isLoading)
-  console.log(isAuthenticated)
+  console.log(auth)
+  console.log(auth)
 
-  if (!isAuthenticated && !isLoading) {
+
+  if (!auth.isAuthenticated && !auth.loading) {
     return <Navigate replace to='/login' />;
   }
  return children

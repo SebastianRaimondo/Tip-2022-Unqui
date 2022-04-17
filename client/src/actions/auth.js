@@ -1,5 +1,6 @@
 import axios from "axios";
 import { setAlertAction } from "./alert";
+import { clearProfile } from "./profile";
 
 export const register =
   ({ name, email, password }) =>
@@ -98,5 +99,6 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
+  dispatch(clearProfile())
   dispatch({ type: "auth/logout" });
 };
