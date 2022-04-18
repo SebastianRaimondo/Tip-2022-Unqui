@@ -1,13 +1,17 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import { Fragment } from 'react';
 import { createProfile } from '../../actions/profile';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../layout/Alert';
 import {useNavigate } from 'react-router-dom';
+import { getCurrentProfile } from '../../actions/profile';
+import { selectCurrentProfile } from '../../features/profileSlice';
 
 
-const CreateProfile = () => {
 
+const EditProfile = () => {
+
+  const {profile, loading} = useSelector(selectCurrentProfile)
   const history= useNavigate()
   const dispatch = useDispatch();
 
@@ -26,8 +30,35 @@ const CreateProfile = () => {
     youtube : '',
     instagram : ''
 })
+//console.log(profile)
+//console.log(loading)
 
 const [displaySocialInputs, toggleSocialInputs] = useState(false)
+
+useEffect(() => {
+
+  dispatch(getCurrentProfile());
+
+  setFormData({
+
+   company: loading || !profile.company? '' : profile.company,
+   website : loading || !profile.website? '' :profile.website,
+   location : loading || !profile.location? '' : profile.location,
+   status : loading || !profile.status? '': profile.status,
+   skills : loading || !profile.skills? '' : profile.skills,
+   githubusername:
+   loading || !profile.githubusername? '' : profile.githubusername,
+   bio : loading || !profile.bio? '' : profile.bio,
+   twitter: loading || !profile.social? '' : profile.social.twitter,
+   facebook : loading || !profile.social? '' : profile.social.facebook,
+   linkedin : loading || !profile.social? '' : profile.social.linkedin,
+   youtube : loading || !profile.social? '' : profile.social.youtube,
+   instagram : loading || !profile.social? '': profile.social.instagram
+
+
+  })
+},[loading])
+
 //console.log(his)
 const {
   company,
@@ -47,11 +78,12 @@ const {
 //console.log(formData)
 
 const onChange = e => setFormData({...formData, [e.target.name] : e.target.value})
-const edit = false
+const edit = true
 const onSubmit = e => {
   e.preventDefault();
   dispatch(createProfile(formData,history,edit))
 }
+//console.log(formData)
   return (
     <section className="container">
       <Alert/>
@@ -66,14 +98,14 @@ const onSubmit = e => {
       <div className="form-group">
         <select name="status" value={status} onChange={e => onChange(e)}>
           <option value="0">* Seleccione el Status profesional</option>
-          <option value="Developer">Desarrollador</option>
-          <option value="Junior Developer">Desarrollador Junior</option>
-          <option value="Senior Developer">Desarrollador Senior</option>
+          <option value="Developer">Developer</option>
+          <option value="Junior Developer">Junior Developer</option>
+          <option value="Senior Developer">Senior Developer</option>
           <option value="Manager">Manager</option>
-          <option value="Student or Learning">Estudiante o Aprendiz</option>
-          <option value="Instructor">Instructor o Profesor</option>
-          <option value="Intern">Interno</option>
-          <option value="Other">Otro</option>
+          <option value="Student or Learning">Student or Learning</option>
+          <option value="Instructor">Instructor or Teacher</option>
+          <option value="Intern">Intern</option>
+          <option value="Other">Other</option>
         </select>
         <small className="form-text"
           >Danos una idea de dónde te encuentras en tu carrera</small
@@ -163,4 +195,4 @@ const onSubmit = e => {
   );
 }
 
-export default CreateProfile;
+export default EditProfile;

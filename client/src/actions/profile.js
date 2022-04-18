@@ -36,7 +36,8 @@ export const clearProfile = () => dispatch => {
   })
 }
 
-export const createProfile = (formData,history, edit = false)=> async dispatch => {
+
+export const createProfile = (formData,history,edit)=> async dispatch => {
 //console.log(his)
 
   try {
@@ -62,19 +63,16 @@ export const createProfile = (formData,history, edit = false)=> async dispatch =
       payload : res.data
     })
 
-    
-    
-
+    //console.log(!edit)
 
     if(!edit){
 
-      dispatch(setAlertAction(edit ? 'Perfil actualizado' : 'Perfil creado','success',2000))
-
-       return history('/dashboard')
-
-        
+      dispatch(setAlertAction('Perfil creado','success',4000))
+      return history('/dashboard')
 
     }
+      dispatch(setAlertAction('Perfil actualizado','success',4000))
+    
 
   } catch (err) {
 

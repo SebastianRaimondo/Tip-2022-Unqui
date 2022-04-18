@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import { selectCurrentProfile } from "../../features/profileSlice";
 import { selectAuth } from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
+import { DashboardActions } from "./DashboardActions";
 
 const Dashboard = () => {
   const profile = useSelector(selectCurrentProfile);
@@ -31,7 +32,7 @@ const Dashboard = () => {
       </p>
 
       {profile.profile !== null ? (
-        <div> Tiene perfil </div>
+        <div> <DashboardActions/> </div>
       ) : (
         <div> 
         
