@@ -7,10 +7,13 @@ import { selectCurrentProfile } from "../../features/profileSlice";
 import { selectAuth } from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
 import { DashboardActions } from "./DashboardActions";
+import Experience from "./Experience";
+import Education from "./Education";
 
 const Dashboard = () => {
   const profile = useSelector(selectCurrentProfile);
   const auth = useSelector(selectAuth);
+  console.log(profile.profile)
 
   const dispatch = useDispatch();
   useEffect(() => dispatch(getCurrentProfile()), []);
@@ -32,7 +35,10 @@ const Dashboard = () => {
       </p>
 
       {profile.profile !== null ? (
-        <div> <DashboardActions/> </div>
+        <div> <DashboardActions/> 
+        <Experience experience={profile.profile.experience}/>
+        <Education education={profile.profile.education}/>
+        </div>
       ) : (
         <div> 
         
