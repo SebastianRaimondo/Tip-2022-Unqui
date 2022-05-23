@@ -101,3 +101,4 @@ export const logout = () => (dispatch) => {
   dispatch(clearProfile())
   dispatch({ type: "auth/logout" });
 };
+
