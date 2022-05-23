@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { createProfile } from '../../actions/profile';
 import { useDispatch } from 'react-redux';
 import Alert from '../layout/Alert';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate,Link } from 'react-router-dom';
 
 
 const CreateProfile = () => {
@@ -157,7 +157,7 @@ const onSubmit = e => {
 
       
       <input type="submit" className="btn btn-primary my-1" />
-      <a className="btn btn-light my-1" href="dashboard.html">Regresar</a>
+      <Link className="btn btn-light my-1" to="/dashboard">Regresar</Link>
     </form>
   </section>
   );

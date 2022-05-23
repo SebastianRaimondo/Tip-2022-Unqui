@@ -89,3 +89,97 @@ export const createProfile = (formData,history,edit)=> async dispatch => {
   }
 
 }
+
+export const addExperience = (formData, history) => async dispatch => {
+
+
+  try {
+
+    const setToken = () => {
+      if (localStorage.token) {
+        let token = localStorage.token;
+  
+        return {
+          headers: {
+            'Content-Type' : 'application/json',
+            "x-auth-token": token,
+          },
+        };
+      }
+    };
+
+    //console.log(edit)
+    const res = await axios.put('/api/profile/experience', formData,setToken())
+
+    dispatch({
+      type : 'profile/updateProfile',
+      payload : res.data
+    })
+
+      dispatch(setAlertAction('Experiencia agregada','success',4000))
+      dispatch(setAlertAction('Perfil actualizado','success',4000))
+      return history('/dashboard')
+
+  } catch (err) {
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 4000)));
+    }
+
+    dispatch({
+      type : 'profile/profileError',
+      payload : {msg : err.response.statusText, status : err.response.status}
+    })
+  }
+
+
+}
+
+export const addEducation = (formData, history) => async dispatch => {
+
+
+  try {
+
+    const setToken = () => {
+      if (localStorage.token) {
+        let token = localStorage.token;
+  
+        return {
+          headers: {
+            'Content-Type' : 'application/json',
+            "x-auth-token": token,
+          },
+        };
+      }
+    };
+
+    //console.log(edit)
+    const res = await axios.put('/api/profile/education', formData,setToken())
+
+    dispatch({
+      type : 'profile/updateProfile',
+      payload : res.data
+    })
+
+      dispatch(setAlertAction('Educacion agregada','success',4000))
+      dispatch(setAlertAction('Perfil actualizado','success',4000))
+      return history('/dashboard')
+
+  } catch (err) {
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((e) => dispatch(setAlertAction(e.msg, "danger", 4000)));
+    }
+
+    dispatch({
+      type : 'profile/profileError',
+      payload : {msg : err.response.statusText, status : err.response.status}
+    })
+  }
+
+
+}

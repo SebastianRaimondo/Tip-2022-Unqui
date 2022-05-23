@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { createProfile } from '../../actions/profile';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../layout/Alert';
-import {useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import { getCurrentProfile } from '../../actions/profile';
 import { selectCurrentProfile } from '../../features/profileSlice';
 
@@ -12,6 +12,7 @@ import { selectCurrentProfile } from '../../features/profileSlice';
 const EditProfile = () => {
 
   const {profile, loading} = useSelector(selectCurrentProfile)
+ // const profile = ''
   const history= useNavigate()
   const dispatch = useDispatch();
 
@@ -37,7 +38,7 @@ const [displaySocialInputs, toggleSocialInputs] = useState(false)
 
 useEffect(() => {
 
-  dispatch(getCurrentProfile());
+ dispatch(getCurrentProfile());
 
   setFormData({
 
@@ -45,7 +46,7 @@ useEffect(() => {
    website : loading || !profile.website? '' :profile.website,
    location : loading || !profile.location? '' : profile.location,
    status : loading || !profile.status? '': profile.status,
-   skills : loading || !profile.skills? '' : profile.skills,
+   skills : loading || !profile.skills? '' : profile.skills.toString(),
    githubusername:
    loading || !profile.githubusername? '' : profile.githubusername,
    bio : loading || !profile.bio? '' : profile.bio,
@@ -59,7 +60,7 @@ useEffect(() => {
   })
 },[loading])
 
-//console.log(his)
+
 const {
   company,
     website,
@@ -75,10 +76,13 @@ const {
     instagram
 } = formData
 
-//console.log(formData)
+console.log(formData)
 
 const onChange = e => setFormData({...formData, [e.target.name] : e.target.value})
 const edit = true
+//const formDataWithSkillsStrings = formData.skills
+//console.log(formData)
+//console.log(profile.skills.toString())
 const onSubmit = e => {
   e.preventDefault();
   dispatch(createProfile(formData,history,edit))
@@ -88,7 +92,7 @@ const onSubmit = e => {
     <section className="container">
       <Alert/>
     <h1 className="large text-primary">
-      Crea tu Perfil
+      Edita tu Perfil
     </h1>
     <p className="lead">
       <i className="fas fa-user"></i> Vamos a obtener un poco de información para hacer su perfil destacado
@@ -189,7 +193,7 @@ const onSubmit = e => {
 
       
       <input type="submit" className="btn btn-primary my-1" />
-      <a className="btn btn-light my-1" href="dashboard.html">Regresar</a>
+      <Link className="btn btn-light my-1" to="/dashboard">Regresar</Link>
     </form>
   </section>
   );

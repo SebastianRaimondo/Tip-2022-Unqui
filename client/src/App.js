@@ -11,8 +11,9 @@ import { loadUser } from "./actions/auth";
 import Dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/routing/PrivateRoute";
 import CreateProfile from "./component/profile-forms/CreateProfile";
-import EditProfile from  "./component/profile-forms/EditProfile"
-
+import EditProfile from "./component/profile-forms/EditProfile";
+import AddExperience from "./component/profile-forms/AddExperience";
+import AddEducation from "./component/profile-forms/AddEducation";
 
 const App = () => {
   useEffect(() => {
@@ -23,7 +24,6 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Navbar />
-   
 
         <Routes>
           <Route exact path='/register' element={<Register />} />
@@ -52,6 +52,24 @@ const App = () => {
             element={
               <PrivateRoute>
                 <EditProfile />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path='/add-experience'
+            element={
+              <PrivateRoute>
+                <AddExperience />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path='/add-education'
+            element={
+              <PrivateRoute>
+                <AddEducation />
               </PrivateRoute>
             }
           />
