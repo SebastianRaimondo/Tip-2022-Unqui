@@ -28,6 +28,79 @@ export const getCurrentProfile = () => async (dispatch) => {
   }
 };
 
+export const getProfiles = () => async (dispatch) => {
+  dispatch({ type: "profile/clearProfile" });
+  try {
+    const res = await axios.get("/api/profile");
+    dispatch({
+      type: "profile/getProfiles",
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: "profile/profileError",
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const getProfileById = (userId) => async (dispatch) => {
+  try {
+    const setToken = () => {
+      if (localStorage.token) {
+        let token = localStorage.token;
+
+        return {
+          headers: {
+            "x-auth-token": token,
+          },
+        };
+      }
+    };
+
+    const res = await axios.get(
+      `/api/profile/experience/${userId}`,
+      setToken()
+    );
+    dispatch({
+      type: "profile/getProfile",
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: "profile/profileError",
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const getGithubRepos = (username) => async (dispatch) => {
+  try {
+    const setToken = () => {
+      if (localStorage.token) {
+        let token = localStorage.token;
+
+        return {
+          headers: {
+            "x-auth-token": token,
+          },
+        };
+      }
+    };
+
+    const res = await axios.get(`/api/profile/github/${username}`, setToken());
+    dispatch({
+      type: "profile/getRepos",
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: "profile/profileError",
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
 export const clearProfile = () => (dispatch) => {
   dispatch({
     type: "profile/clearProfile",

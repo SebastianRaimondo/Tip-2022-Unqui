@@ -35,11 +35,25 @@ export const profileSlice = createSlice({
      state.profile = action.payload;
      state.loading = false;
 
-    }
+    },
+
+    getProfiles: (state,action) => {
+      state.profiles = action.payload;
+      state.loading = false;
+ 
+     },
+
+     getRepos: (state,action) => {
+      state.repos = action.payload;
+      state.loading = false;
+ 
+     }
   }
 
 })
   
 
 export const selectCurrentProfile = (state) => state.profile;
+export const selectProfiles = (state) => state.profile.profiles;
 export default profileSlice.reducer;
+export const selectLoading = (state) => state.profile.loading;

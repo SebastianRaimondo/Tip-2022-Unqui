@@ -14,7 +14,7 @@ import { deleteAccount } from "../../actions/profile";
 const Dashboard = () => {
   const profile = useSelector(selectCurrentProfile);
   const auth = useSelector(selectAuth);
-  console.log(profile.profile);
+
 
   const dispatch = useDispatch();
   useEffect(() => dispatch(getCurrentProfile()), []);
