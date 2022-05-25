@@ -15,6 +15,7 @@ import EditProfile from "./component/profile-forms/EditProfile";
 import AddExperience from "./component/profile-forms/AddExperience";
 import AddEducation from "./component/profile-forms/AddEducation";
 import Profiles from "./component/profiles/Profiles";
+import Profile from "./component/profiles/Profile";
 
 const App = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const App = () => {
 
 
           <Route exact path='/profiles' element={<Profiles />} />
+          <Route exact path='/profile/:id' element ={<Profile />} />
 
           <Route
             path='/dashboard'

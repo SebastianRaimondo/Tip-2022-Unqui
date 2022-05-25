@@ -20,8 +20,7 @@ const Landing = () => {
       <div className="landing-inner">
         <h1 className="x-large">Developer Connector</h1>
         <p className="lead">
-          Create a developer profile/portfolio, share posts and get help from
-          other developers
+          Crea un perfil/portfolio de desarrollador, comparte posts e interactua con otros desarrolladores
         </p>
         <div className="buttons">
         <Link to='/register' className="btn btn-primary">Registrate</Link>

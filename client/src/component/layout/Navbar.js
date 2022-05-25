@@ -17,13 +17,13 @@ const Navbar = () => {
       <li>
         <Link to='/dashboard'>
           <i className='fas fa-user' />{" "}
-          <span className='hide-sm'>Dashboard</span>
+          <span className='hide-sm'>Panel de control</span>
         </Link>
       </li>
       <li>
         <a onClick={() => dispatch(logout())} href='#!'>
           <i className='fas fa-sign-out-alt' />{" "}
-          <span className='hide-sm'>Logout</span>
+          <span className='hide-sm'>Salir</span>
         </a>
       </li>
     </ul>
@@ -32,10 +32,10 @@ const Navbar = () => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>Registrate</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>Inicia sesion</Link>
       </li>
       <li>
         <Link to='/profiles'>Desarrolladores</Link>

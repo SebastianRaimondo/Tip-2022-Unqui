@@ -59,7 +59,7 @@ export const getProfileById = (userId) => async (dispatch) => {
     };
 
     const res = await axios.get(
-      `/api/profile/experience/${userId}`,
+      `/api/profile/user/${userId}`,
       setToken()
     );
     dispatch({
