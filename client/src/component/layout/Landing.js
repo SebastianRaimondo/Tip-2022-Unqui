@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAuth} from '../../features/userLogginSlice';
 
@@ -24,8 +24,9 @@ const Landing = () => {
           other developers
         </p>
         <div className="buttons">
-          <a href="register.html" className="btn btn-primary">Sign Up</a>
-          <a href="login.html" className="btn btn-light">Login</a>
+        <Link to='/register' className="btn btn-primary">Registrate</Link>
+        <Link to='/login' className="btn btn-light">Inicia sesion</Link>
+    
         </div>
       </div>
     </div>
