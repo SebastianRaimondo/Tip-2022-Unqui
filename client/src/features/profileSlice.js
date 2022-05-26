@@ -58,3 +58,4 @@ export const selectProfiles = (state) => state.profile.profiles;
 export default profileSlice.reducer;
 export const selectLoading = (state) => state.profile.loading;
 export const selectProfile = (state) => state.profile.profile;
+export const selectRepos = (state) => state.profile.repos;

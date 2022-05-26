@@ -88,7 +88,9 @@ export const getGithubRepos = (username) => async (dispatch) => {
       }
     };
 
-    const res = await axios.get(`/api/profile/github/${username}`, setToken());
+    console.log(username)
+
+    const res = await axios.get(`/api/profile/github/${username}`);
     dispatch({
       type: "profile/getRepos",
       payload: res.data,

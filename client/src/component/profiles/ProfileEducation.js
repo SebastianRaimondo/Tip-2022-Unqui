@@ -1,13 +1,13 @@
 import React from 'react';
 import Moment from "react-moment"
 
-const ProfileExperience = ({
-  experience:{company, title, location, current, to, from,description}
+const ProfileEducation = ({
+  education:{school, degree, fieldofstudy, current, to, from,description}
 }) => 
   
     <div>
       
-      <h3 className='text-dark'>{company}</h3>
+      <h3 className='text-dark'>{school}</h3>
       <p>
         <Moment format= "YYYY/MM/DD">{from}</Moment> - {!to ? "ahora": <Moment format="YYYY/MM/DD">{to}</Moment>
         
@@ -15,7 +15,12 @@ const ProfileExperience = ({
       </p>
       <p>
 
-        <strong> Posicion:</strong>{" "}{title}
+        <strong>Grado:</strong>{" "}{degree}
+      </p>
+
+      <p>
+
+        <strong>Campo de estudio:</strong>{" "}{fieldofstudy}
       </p>
       <p>
 
@@ -25,4 +30,4 @@ const ProfileExperience = ({
 
 
 
-export default ProfileExperience;
+export default ProfileEducation;
