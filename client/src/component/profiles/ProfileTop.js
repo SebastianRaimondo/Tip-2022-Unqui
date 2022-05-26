@@ -20,7 +20,7 @@ const ProfileTop = ({
       </p>
       <p>{location && <span>{location}</span>}</p>
 
-      <div class='icons my-1'>
+      <div className='icons my-1'>
         {website && (
           <a
             href={"https://" + website}

@@ -16,6 +16,7 @@ import AddExperience from "./component/profile-forms/AddExperience";
 import AddEducation from "./component/profile-forms/AddEducation";
 import Profiles from "./component/profiles/Profiles";
 import Profile from "./component/profiles/Profile";
+import Posts from "./component/posts/Posts";
 
 const App = () => {
   useEffect(() => {
@@ -76,6 +77,15 @@ const App = () => {
             element={
               <PrivateRoute>
                 <AddEducation />
+              </PrivateRoute>
+            }
+          />
+
+<Route
+            path='/posts'
+            element={
+              <PrivateRoute>
+                <Posts />
               </PrivateRoute>
             }
           />
