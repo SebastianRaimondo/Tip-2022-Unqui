@@ -97,3 +97,36 @@ export const deletePost = (id) => async (dispatch) => {
     });
   }
 };
+
+// Add post
+export const addPost = (formData) => async (dispatch) => {
+
+  const setToken = () => {
+    if (localStorage.token) {
+      let token = localStorage.token;
+
+      return {
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": token,
+        },
+      };
+    }
+  };
+
+  try {
+    const res = await axios.post("/api/posts/", formData, setToken());
+
+    dispatch({
+      type: "post/addPost",
+      payload: res.data
+    });
+
+    dispatch(setAlertAction("Post creado", "success", 4000));
+  } catch (err) {
+    dispatch({
+      type: "post/postError",
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
