@@ -47,8 +47,7 @@ export const loadUser = () => async (dispatch) => {
           "x-auth-token": token,
         },
       };
-    }
-  };
+    }  };
 
   try {
     const res = await axios.get("api/auth", setToken());

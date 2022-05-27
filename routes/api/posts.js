@@ -93,7 +93,7 @@ router.delete('/:id', auth, async (req, res) => {
 });
 
 //Add likes to post
-router.put('/likes/:id', auth, async (req, res) => {
+router.put('/like/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -120,7 +120,7 @@ router.put('/likes/:id', auth, async (req, res) => {
 });
 
 //Unlike the post
-router.put('/unlikes/:id', auth, async (req, res) => {
+router.put('/unlike/:id', auth, async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
   
