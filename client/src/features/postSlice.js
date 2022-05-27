@@ -1,41 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const initialState = {
   posts: [],
   post: null,
   loading: true,
-  error :{}
+  error: {},
 };
-
 
 export const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
     getPosts: (state, action) => {
-     state.posts = action.payload;
-     state.loading = false;
+      state.posts = action.payload;
+      state.loading = false;
     },
 
-    
-    postError: (state,action) =>{
+    postError: (state, action) => {
       state.error = action.payload;
       state.loading = false;
     },
 
-    updateLikes: (state,action) =>{
-      state.posts = state.posts.map(post => post._id === action.payload.id ? {...post, likes : action.payload.likes} : post)
-       
+    deletePost: (state, action) => {
+      state.posts = state.posts.filter((post) => post._id !== action.payload);
       state.loading = false;
     },
-  
 
-  }
+    updateLikes: (state, action) => {
+      state.posts = state.posts.map((post) =>
+        post._id === action.payload.id
+          ? { ...post, likes: action.payload.likes }
+          : post
+      );
 
-})
-  
+      state.loading = false;
+    },
+  },
+});
 
 export const selectPosts = (state) => state.post.posts;
 export const selectLoading = (state) => state.post.loading;
