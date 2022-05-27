@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+
 const initialState = {
   posts: [],
   post: null,
@@ -25,8 +26,8 @@ export const postSlice = createSlice({
     },
 
     updateLikes: (state,action) =>{
-      state.posts = state.posts.map(post => post._id === action.payload.id ?
-        {post, likes: action.payload.likes} : post);
+      state.posts = state.posts.map(post => post._id === action.payload.id ? {...post, likes : action.payload.likes} : post)
+       
       state.loading = false;
     },
   

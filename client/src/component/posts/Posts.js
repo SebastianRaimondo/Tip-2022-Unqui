@@ -10,10 +10,12 @@ const Posts = () => {
 
 const dispatch = useDispatch();
 
- const posts = useSelector(selectPosts)
+ const posts = useSelector(state => state.post.posts)
+ const likes = useSelector(state => state.post.posts.likes)
  const loading = useSelector(selectLoading)
 
- //console.log(posts)
+ console.log(posts)
+ console.log(likes)
  //console.log(loading)
 
 useEffect(() => {
