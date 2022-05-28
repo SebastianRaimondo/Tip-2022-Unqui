@@ -16,6 +16,11 @@ export const postSlice = createSlice({
       state.loading = false;
     },
 
+    getPost: (state, action) => {
+      state.post = action.payload;
+      state.loading = false;
+    },
+
     postError: (state, action) => {
       state.error = action.payload;
       state.loading = false;
@@ -49,6 +54,6 @@ export const selectLoading = (state) => state.post.loading;
 export default postSlice.reducer;
 //export const selectProfiles = (state) => state.profile.profiles;
 //export default profileSlice.reducer;
-//export const selectLoading = (state) => state.profile.loading;
+export const selectPost = (state) => state.post.post;
 //export const selectProfile = (state) => state.profile.profile;
 //export const selectRepos = (state) => state.profile.repos;

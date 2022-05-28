@@ -130,3 +130,24 @@ export const addPost = (formData) => async (dispatch) => {
     });
   }
 };
+
+//Get post
+export const getPost = id => async (dispatch) => {
+
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+ 
+  try {
+    const res = await axios.get(`/api/posts/${id}`);
+    dispatch({
+      type: "post/getPost",
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: "post/postError",
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
