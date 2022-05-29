@@ -12,6 +12,7 @@ export const userlogginSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+
     registerSuccess: (state, action) => {
       localStorage.setItem("token", action.payload.token);
       state.token= action.payload.token;
@@ -34,8 +35,6 @@ export const userlogginSlice = createSlice({
       state.loading = false;
     },
 
-
-    
     loginFail: (state, action) => {
       localStorage.removeItem("token");
       state.token = null;
@@ -56,7 +55,7 @@ export const userlogginSlice = createSlice({
       state.user = action.payload;
     },
 
-    authErrors: (state, action) => {
+    authErrors: (state) => {
       localStorage.removeItem("token");
       state.token = null;
       state.isAuthenticated = false;
@@ -67,6 +66,5 @@ export const userlogginSlice = createSlice({
 });
 
 export default userlogginSlice.reducer;
-export const {userLoaded} = userlogginSlice.actions
-export const selectAuth = (state) => state.auth
+
 

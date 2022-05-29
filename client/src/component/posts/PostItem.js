@@ -2,14 +2,12 @@ import React , {useEffect} from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth } from "../../features/userLogginSlice";
 import { removeLike, addLike,deletePost } from "../../actions/post";
 
 const PostItem = ({
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
-  console.log(likes)
-  const auth = useSelector(selectAuth);
+  const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   return (

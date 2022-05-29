@@ -7,9 +7,9 @@ import { selectAuth} from '../../features/userLogginSlice';
 const Landing = () => {
 
 
-  const auth = useSelector(selectAuth)
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
-  if(auth.isAuthenticated){
+  if(isAuthenticated){
     return <Navigate replace to='/dashboard' />;
   }
 

@@ -5,7 +5,6 @@ import Spinner from "../layout/Spinner";
 import { getProfileById } from "../../actions/profile";
 import { selectProfile } from "../../features/profileSlice";
 import { useParams, Link } from "react-router-dom";
-import { selectAuth } from "../../features/userLogginSlice";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import { Fragment } from "react";
@@ -17,10 +16,9 @@ const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const auth = useSelector(selectAuth);
+  const auth = useSelector(state => state.auth);
   const profile = useSelector(selectProfile);
-  //console.log(auth.isAuthenticated)
-  // console.log(profile.profile.experience)
+
   useEffect(() => {
     dispatch(getProfileById(id));
   }, []);

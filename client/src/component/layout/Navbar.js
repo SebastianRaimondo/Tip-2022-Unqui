@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { selectAuth } from "../../features/userLogginSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../actions/auth";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const authState = useSelector(selectAuth);
+  const authState = useSelector(state => state.auth);
 
   const authLinks = (
     <ul>

@@ -1,15 +1,13 @@
 import React , {useEffect} from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { selectAuth } from "../../features/userLogginSlice";
 
 
 const PostDiscussion = ({
   post: {  text, name, avatar, user,  date },
 }) => {
-
-  const auth = useSelector(selectAuth);
 
   return (
     <div className='post bg-white p-1 my-1'>

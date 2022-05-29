@@ -21,7 +21,6 @@ const Posts = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-    console.log(posts);
   }, []);
 
   return loading ? (

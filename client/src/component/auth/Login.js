@@ -3,14 +3,13 @@ import { useState } from "react";
 import {Link, Navigate} from 'react-router-dom'
 import { login } from "../../actions/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth } from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
 
 
 const Login = () => {
 
  
-  const auth = useSelector(selectAuth);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
@@ -30,7 +29,7 @@ const Login = () => {
 
 
 
-  if(auth.isAuthenticated){
+  if(isAuthenticated){
     return  <Navigate replace to="/dashboard"/>
    }
   //console.log(name)

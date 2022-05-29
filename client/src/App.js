@@ -7,7 +7,7 @@ import Login from "./component/auth/Login";
 import { Register } from "./component/auth/Register";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import { loadUser } from "./actions/auth";
+import { userLoaded } from "./actions/auth";
 import Dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/routing/PrivateRoute";
 import CreateProfile from "./component/profile-forms/CreateProfile";
@@ -18,11 +18,13 @@ import Profiles from "./component/profiles/Profiles";
 import Profile from "./component/profiles/Profile";
 import Posts from "./component/posts/Posts";
 import Post from "./component/post/Post";
+import NotFound from "./component/layout/NotFound"
 
 const App = () => {
+  
   useEffect(() => {
-    store.dispatch(loadUser());
-  }, []);
+    store.dispatch(userLoaded());
+  },[]);
 
   return (
     <Provider store={store}>
@@ -32,73 +34,19 @@ const App = () => {
         <Routes>
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/login' element={<Login />} />
-
           <Route exact path='/profiles' element={<Profiles />} />
           <Route exact path='/profile/:id' element={<Profile />} />
+          <Route element={<PrivateRoute/>}>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/create-profile' element={<CreateProfile/>}/>
+          <Route path='/edit-profile' element={<EditProfile/>}/>
+          <Route path='/add-experience' element={<AddExperience/>}/>
+          <Route path='/add-education' element={<AddEducation/>}/>
+          <Route path='/posts' element={<Posts/>}/>
+          <Route path="/posts/:id/" element={<Post/>}/> 
+          </Route>
 
-          <Route
-            path='/dashboard'
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            path='/create-profile'
-            element={
-              <PrivateRoute>
-                <CreateProfile />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            path='/edit-profile'
-            element={
-              <PrivateRoute>
-                <EditProfile />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            path='/add-experience'
-            element={
-              <PrivateRoute>
-                <AddExperience />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            path='/add-education'
-            element={
-              <PrivateRoute>
-                <AddEducation />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            path='/posts'
-            element={
-              <PrivateRoute>
-                <Posts />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            path='/posts/:id'
-            element={
-              <PrivateRoute>
-                <Post />
-              </PrivateRoute>
-            }
-          />
-
+          <Route path='*' element={<NotFound />} />
           <Route exact path='/' element={<Landing />} />
         </Routes>
       </Router>

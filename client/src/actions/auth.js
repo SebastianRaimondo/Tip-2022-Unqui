@@ -1,6 +1,7 @@
 import axios from "axios";
 import { setAlertAction } from "./alert";
 import { clearProfile } from "./profile";
+import setAuthToken from "../features/utils/setAuthToken";
 
 export const register =
   ({ name, email, password }) =>
@@ -13,9 +14,6 @@ export const register =
 
     const body = JSON.stringify({ name, email, password });
 
-
-
-
     try {
       const res = await axios.post("api/users", body, config);
 
@@ -23,7 +21,7 @@ export const register =
         type: "auth/registerSuccess",
         payload: res.data,
       });
-      dispatch(loadUser());
+      dispatch(userLoaded());
     } catch (err) {
       const errors = err.response.data.errors;
 
@@ -37,22 +35,36 @@ export const register =
     }
   };
 
-export const loadUser = () => async (dispatch) => {
+export const userLoaded = () => async (dispatch) => {
+
   const setToken = () => {
     if (localStorage.token) {
       let token = localStorage.token;
+      console.log(token )
 
       return {
         headers: {
+          "Content-Type": "application/json",
           "x-auth-token": token,
         },
       };
-    }  };
+    }
+  };
 
+
+ 
   try {
-    const res = await axios.get("api/auth", setToken());
 
-    //console.log(res);
+  // const res = fetch("api/auth",setToken())
+  //  .then(response => response.json())
+  //  .then(data => console.log(data));
+
+    //const cacho = (token) => console.log("Viva la patria y lo neegrito leiva") 
+    //cacho( axios.get("api/auth",setToken()))
+
+    const res = await axios.get("api/auth",setToken());
+
+    //console.log("desde el axios" + " " + res.data);
 
     dispatch({
       type: "auth/userLoaded",
@@ -82,7 +94,7 @@ export const login = (email, password) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(loadUser());
+    dispatch(userLoaded());
   } catch (err) {
     const errors = err.response.data.errors;
 

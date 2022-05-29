@@ -4,7 +4,6 @@ import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import { selectCurrentProfile } from "../../features/profileSlice";
-import { selectAuth } from "../../features/userLogginSlice";
 import Alert from "../layout/Alert";
 import { DashboardActions } from "./DashboardActions";
 import Experience from "./Experience";
@@ -13,7 +12,7 @@ import { deleteAccount } from "../../actions/profile";
 
 const Dashboard = () => {
   const profile = useSelector(selectCurrentProfile);
-  const auth = useSelector(selectAuth);
+  const auth = useSelector(state => state.auth);
 
 
   const dispatch = useDispatch();
