@@ -1,5 +1,5 @@
 import axios from "axios";
-import setAuthToken from "../features/utils/setAuthToken";
+import setAuthToken from "../features/setAuthToken";
 import { setAlertAction } from "./alert";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////

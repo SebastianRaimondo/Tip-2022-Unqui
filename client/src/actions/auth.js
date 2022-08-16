@@ -1,7 +1,6 @@
 import axios from "axios";
 import { setAlertAction } from "./alert";
 import { clearProfile } from "./profile";
-import setAuthToken from "../features/utils/setAuthToken";
 
 export const register =
   ({ name, email, password }) =>
@@ -62,7 +61,7 @@ export const userLoaded = () => async (dispatch) => {
     //const cacho = (token) => console.log("Viva la patria y lo neegrito leiva") 
     //cacho( axios.get("api/auth",setToken()))
 
-    const res = await axios.get("api/auth",setToken());
+    const res = await axios.get("/api/auth",setToken());
 
     //console.log("desde el axios" + " " + res.data);
 
