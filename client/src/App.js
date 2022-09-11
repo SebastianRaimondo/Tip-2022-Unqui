@@ -19,6 +19,7 @@ import Profile from "./component/profiles/Profile";
 import Posts from "./component/posts/Posts";
 import Post from "./component/post/Post";
 import NotFound from "./component/layout/NotFound"
+import AddLanguage from "./component/profile-forms/AddLanguage";
 
 const App = () => {
   
@@ -42,6 +43,7 @@ const App = () => {
           <Route path='/edit-profile' element={<EditProfile/>}/>
           <Route path='/add-experience' element={<AddExperience/>}/>
           <Route path='/add-education' element={<AddEducation/>}/>
+          <Route path='/add-language' element={<AddLanguage/>}/>
           <Route path='/posts' element={<Posts/>}/>
           <Route path="/posts/:id/" element={<Post/>}/> 
           </Route>
