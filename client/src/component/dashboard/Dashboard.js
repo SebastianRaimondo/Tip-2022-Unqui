@@ -8,6 +8,7 @@ import Alert from "../layout/Alert";
 import { DashboardActions } from "./DashboardActions";
 import Experience from "./Experience";
 import Education from "./Education";
+import Language from "./Language";
 import { deleteAccount } from "../../actions/profile";
 
 const Dashboard = () => {
@@ -39,6 +40,7 @@ const Dashboard = () => {
           <DashboardActions />
           <Experience experience={profile.profile.experience} />
           <Education education={profile.profile.education} />
+          <Language language={profile.profile.language} />
           <div className='my-2'>
             <button
               className='btn btn-danger'

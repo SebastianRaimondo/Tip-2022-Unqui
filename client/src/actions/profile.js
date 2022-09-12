@@ -239,9 +239,6 @@ export const addEducation = (formData, history) => async (dispatch) => {
   }
 };
 
-
-
-
 export const addLanguage = (formData, history) => async (dispatch) => {
   try {
     const setToken = () => {
@@ -356,6 +353,49 @@ export const deleteEducation = (id) => async (dispatch) => {
     });
   }
 };
+
+
+export const deleteLanguage = (id) => async (dispatch) => {
+  try {
+    const setToken = () => {
+      if (localStorage.token) {
+        let token = localStorage.token;
+
+        return {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": token,
+          },
+        };
+      }
+    };
+
+    const res = await axios.delete(`/api/profile/language/${id}`, setToken());
+
+    dispatch({
+      type: "profile/updateProfile",
+      payload: res.data,
+    });
+
+    dispatch(setAlertAction("Idioma eliminado", "success", 4000));
+  } catch (err) {
+    dispatch({
+      type: "profile/profileError",
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
 
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("¿Esta seguro? Esto NO puede ser deshecho")) {

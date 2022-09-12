@@ -11,6 +11,7 @@ const AddLanguage = () => {
   const [formData, setFormData] = useState({
     level: "",
     language: "",
+    school: "",
   });
 
   const dataListLanguage = [
@@ -29,13 +30,14 @@ const AddLanguage = () => {
     "Avanzado",
   ];
 
-  const { level, language } = formData;
+  const { level, language, school } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   console.log(level);
   console.log(language);
+  console.log(school);
 
   return (
     <section className='container'>
@@ -47,11 +49,24 @@ const AddLanguage = () => {
           dispatch(addLanguage(formData, history));
         }}
       >
+        <label for='school'>
+          ¿En que Universidad o institucion estudiaste?
+        </label>
+        <br></br>
+        <input
+          type='text'
+          placeholder='Universidad o institucion '
+          name='school'
+          value={school}
+          onChange={(e) => onChange(e)}
+        />
+
         <div className='form-group'>
           <label for='language'>
             Elige un idioma de la lista o ingresalo manualmente:
           </label>
           <br></br>
+
           <input
             list='languages'
             name='language'

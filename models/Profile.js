@@ -103,6 +103,10 @@ const ProfileSchema = new Schema({
         type: String,
         required: true,
       },
+      school: {
+        type: String,
+        required: true,
+      },
     },
   ],
   social: {

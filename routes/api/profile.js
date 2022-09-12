@@ -276,7 +276,7 @@ router.put(
 );
 
 
-//Add education to profile
+//Add language to profile
 router.put(
   "/language",
   [
@@ -286,6 +286,8 @@ router.put(
 
     body("language", "Language is required").not().isEmpty(),
 
+    body("school", "School is required").not().isEmpty()
+
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -293,12 +295,15 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { level, language } =
+    const { level, language, school } =
       req.body;
+
+      console.log(school)
 
     const newLanguage = {
       level,
       language,
+      school,
     };
 
     try {
@@ -339,6 +344,26 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
       .indexOf(req.params.edu_id);
     //console.log(indexToRemove)
     profile.education.splice(indexToRemove, 1);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+//Delete language from profile
+
+router.delete("/language/:lan_id", auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    //Get index to remove
+    const indexToRemove = profile.language
+      .map((item) => item.id)
+      .indexOf(req.params.lan_id);
+    console.log(indexToRemove)
+    profile.language.splice(indexToRemove, 1);
     await profile.save();
     res.json(profile);
   } catch (err) {
