@@ -2,29 +2,40 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { addEducation } from "../../actions/profile";
+import { addLanguage } from "../../actions/profile";
 
 const AddLanguage = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    school: "",
-    degree: "",
-    fieldofstudy: "",
-    from: "",
-    to: "",
-    current: false,
-    description: "",
+    level: "",
+    language: "",
   });
 
-  const [toDateDisabled, toggleDisabled] = useState(false);
+  const dataListLanguage = [
+    "Ingles",
+    "Aleman",
+    "Italiano",
+    "Frances",
+    "Portugues",
+  ];
+  const dataListLevel = [
+    "Principiante",
+    "Elemental",
+    "Bajo-Intermedio",
+    "Intermedio",
+    "Alto-Intermedio",
+    "Avanzado",
+  ];
 
-  const { school, degree, fieldofstudy, from, to, current, description } =
-    formData;
+  const { level, language } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  console.log(level);
+  console.log(language);
 
   return (
     <section className='container'>
@@ -33,7 +44,7 @@ const AddLanguage = () => {
         className='form'
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(addEducation(formData, history));
+          dispatch(addLanguage(formData, history));
         }}
       >
         <div className='form-group'>
@@ -41,29 +52,34 @@ const AddLanguage = () => {
             Elige un idioma de la lista o ingresalo manualmente:
           </label>
           <br></br>
-          <input list='languages' name='language' id='language'  placeholder="Idioma"></input>
+          <input
+            list='languages'
+            name='language'
+            id='language'
+            placeholder='Idioma'
+            onChange={(e) => onChange(e)}
+          ></input>
           <datalist id='languages'>
-            <option value='Ingles'></option>
-            <option value='Aleman'></option>
-            <option value='Italiano'></option>
-            <option value='Frances'></option>
-            <option value='Portugues'></option>
+            {dataListLanguage.map((op) => (
+              <option>{op}</option>
+            ))}
           </datalist>
         </div>
 
         <div>
-          <label for='Level'>
-            Elige un nivel o ingresalo manualmente:
-          </label>
+          <label for='Level'>Elige un nivel o ingresalo manualmente:</label>
           <br></br>
-          <input list='levels' name='level' id='level' placeholder="Nivel"></input>
+          <input
+            list='levels'
+            name='level'
+            id='level'
+            placeholder='Nivel'
+            onChange={(e) => onChange(e)}
+          ></input>
           <datalist id='levels'>
-            <option value='Principiante'> </option>
-            <option value='Elemental'></option>
-            <option value='Bajo-Intermedio'></option>
-            <option value='Intermedio'></option>
-            <option value='Alto-Intermedio'></option>
-            <option value='Avanzado'></option>
+            {dataListLevel.map((op) => (
+              <option>{op}</option>
+            ))}
           </datalist>
         </div>
 

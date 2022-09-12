@@ -275,6 +275,58 @@ router.put(
   }
 );
 
+
+//Add education to profile
+router.put(
+  "/language",
+  [
+    auth,
+
+    body("level", "Level is required").not().isEmpty(),
+
+    body("language", "Language is required").not().isEmpty(),
+
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { level, language } =
+      req.body;
+
+    const newLanguage = {
+      level,
+      language,
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+      profile.language.unshift(newLanguage);
+      await profile.save();
+      return res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server error");
+    }
+  }
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Delete education from profile
 
 router.delete("/education/:edu_id", auth, async (req, res) => {

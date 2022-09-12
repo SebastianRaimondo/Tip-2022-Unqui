@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ProfileSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'user',
+    ref: "user",
   },
   handle: {
     type: String,
@@ -93,6 +93,18 @@ const ProfileSchema = new Schema({
       },
     },
   ],
+  language: [
+    {
+      language: {
+        type: String,
+        required: true,
+      },
+      level: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   social: {
     youtube: {
       type: String,
@@ -116,4 +128,4 @@ const ProfileSchema = new Schema({
   },
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = Profile = mongoose.model("profile", ProfileSchema);
