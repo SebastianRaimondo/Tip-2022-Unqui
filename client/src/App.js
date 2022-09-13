@@ -20,9 +20,22 @@ import Posts from "./component/posts/Posts";
 import Post from "./component/post/Post";
 import NotFound from "./component/layout/NotFound"
 import AddLanguage from "./component/profile-forms/AddLanguage";
+import axios from "axios";
 
 const App = () => {
   
+  axios.interceptors.request.use(
+    config => {
+        if (localStorage.token) {
+         let token = localStorage.token
+            config.headers['x-auth-token'] =  token;
+        }
+        config.headers['Content-Type'] = 'application/json';
+        return config;
+    },
+    error => {
+        Promise.reject(error)
+});
   useEffect(() => {
     store.dispatch(userLoaded());
   },[]);

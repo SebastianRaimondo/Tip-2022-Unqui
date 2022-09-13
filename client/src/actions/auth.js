@@ -36,35 +36,9 @@ export const register =
 
 export const userLoaded = () => async (dispatch) => {
 
-  const setToken = () => {
-    if (localStorage.token) {
-      let token = localStorage.token;
-      console.log(token )
-
-      return {
-        headers: {
-          "Content-Type": "application/json",
-          "x-auth-token": token,
-        },
-      };
-    }
-  };
-
-
- 
   try {
 
-  // const res = fetch("api/auth",setToken())
-  //  .then(response => response.json())
-  //  .then(data => console.log(data));
-
-    //const cacho = (token) => console.log("Viva la patria y lo neegrito leiva") 
-    //cacho( axios.get("api/auth",setToken()))
-
-    const res = await axios.get("/api/auth",setToken());
-
-    //console.log("desde el axios" + " " + res.data);
-
+    const res = await axios.get("/api/auth");
     dispatch({
       type: "auth/userLoaded",
       payload: res.data,

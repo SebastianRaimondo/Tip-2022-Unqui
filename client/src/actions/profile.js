@@ -3,19 +3,7 @@ import { setAlertAction } from "./alert";
 
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    const res = await axios.get("/api/profile/me", setToken());
+    const res = await axios.get("/api/profile/me");
     dispatch({
       type: "profile/getProfile",
       payload: res.data,
@@ -46,21 +34,8 @@ export const getProfiles = () => async (dispatch) => {
 
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
     const res = await axios.get(
-      `/api/profile/user/${userId}`,
-      setToken()
+      `/api/profile/user/${userId}`
     );
     dispatch({
       type: "profile/getProfile",
@@ -76,18 +51,6 @@ export const getProfileById = (userId) => async (dispatch) => {
 
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
     console.log(username)
 
     const res = await axios.get(`/api/profile/github/${username}`);
@@ -110,31 +73,13 @@ export const clearProfile = () => (dispatch) => {
 };
 
 export const createProfile = (formData, history, edit) => async (dispatch) => {
-  //console.log(his)
-
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    //console.log(edit)
-    const res = await axios.post("/api/profile", formData, setToken());
+    const res = await axios.post("/api/profile", formData);
 
     dispatch({
       type: "profile/getProfile",
       payload: res.data,
     });
-
-    //console.log(!edit)
 
     if (!edit) {
       dispatch(setAlertAction("Perfil creado", "success", 4000));
@@ -157,24 +102,10 @@ export const createProfile = (formData, history, edit) => async (dispatch) => {
 
 export const addExperience = (formData, history) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    //console.log(edit)
     const res = await axios.put(
       "/api/profile/experience",
-      formData,
-      setToken()
+      formData
+  
     );
 
     dispatch({
@@ -201,21 +132,8 @@ export const addExperience = (formData, history) => async (dispatch) => {
 
 export const addEducation = (formData, history) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    //console.log(edit)
-    const res = await axios.put("/api/profile/education", formData, setToken());
+  
+    const res = await axios.put("/api/profile/education", formData);
 
     dispatch({
       type: "profile/updateProfile",
@@ -241,21 +159,8 @@ export const addEducation = (formData, history) => async (dispatch) => {
 
 export const addLanguage = (formData, history) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    //console.log(edit)
-    const res = await axios.put("/api/profile/language", formData, setToken());
+    
+    const res = await axios.put("/api/profile/language", formData);
 
     dispatch({
       type: "profile/updateProfile",
@@ -282,32 +187,10 @@ export const addLanguage = (formData, history) => async (dispatch) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
 export const deleteExperience = (id) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    const res = await axios.delete(`/api/profile/experience/${id}`, setToken());
+    
+    const res = await axios.delete(`/api/profile/experience/${id}`);
 
     dispatch({
       type: "profile/updateProfile",
@@ -325,20 +208,8 @@ export const deleteExperience = (id) => async (dispatch) => {
 
 export const deleteEducation = (id) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    const res = await axios.delete(`/api/profile/education/${id}`, setToken());
+   
+    const res = await axios.delete(`/api/profile/education/${id}`);
 
     dispatch({
       type: "profile/updateProfile",
@@ -357,20 +228,8 @@ export const deleteEducation = (id) => async (dispatch) => {
 
 export const deleteLanguage = (id) => async (dispatch) => {
   try {
-    const setToken = () => {
-      if (localStorage.token) {
-        let token = localStorage.token;
-
-        return {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": token,
-          },
-        };
-      }
-    };
-
-    const res = await axios.delete(`/api/profile/language/${id}`, setToken());
+   
+    const res = await axios.delete(`/api/profile/language/${id}`);
 
     dispatch({
       type: "profile/updateProfile",
@@ -388,31 +247,11 @@ export const deleteLanguage = (id) => async (dispatch) => {
 
 
 
-
-
-
-
-
-
-
-
-
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("¿Esta seguro? Esto NO puede ser deshecho")) {
     try {
-      const setToken = () => {
-        if (localStorage.token) {
-          let token = localStorage.token;
-
-          return {
-            headers: {
-              "Content-Type": "application/json",
-              "x-auth-token": token,
-            },
-          };
-        }
-      };
-      const res = await axios.delete("/api/profile", setToken());
+      
+      const res = await axios.delete("/api/profile");
 
       dispatch({
         type: "profile/clearProfile",

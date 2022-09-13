@@ -13,8 +13,10 @@ const EditProfile = () => {
 
   const {profile, loading} = useSelector(selectCurrentProfile)
  // const profile = ''
-  const history= useNavigate()
-  const dispatch = useDispatch();
+ const hist = useNavigate();
+ const dispatch = useDispatch();
+
+ console.log(hist)
 
   const [formData, setFormData] = useState({
 
@@ -85,7 +87,7 @@ const edit = true
 //console.log(profile.skills.toString())
 const onSubmit = e => {
   e.preventDefault();
-  dispatch(createProfile(formData,history,edit))
+  dispatch(createProfile(formData,hist,edit))
 }
 //console.log(formData)
   return (
