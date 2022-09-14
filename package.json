@@ -4,11 +4,13 @@
   "description": "Red social para desarrolladores de soft",
   "main": "server.js",
   "scripts": {
+
+    "start": "node server",
+    "server": "nodemon server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && run build --prefix client", 
-    "start": "node server",
-    "server": "nodemon server"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+   
   },
   "author": "Pedro Anides rey del fucking pueblo lgbt de Belgrano",
   "license": "ISC",
