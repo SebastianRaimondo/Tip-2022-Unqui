@@ -13,8 +13,8 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false}));
 
-//Creo un endpoint para probar
-app.get('/', (req, res) => res.send('API Running pedro anido'))
+const path = require("path")
+
 
 
 //Define Routes
@@ -23,6 +23,23 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
+
+
+
+//Serve static assets in production
+
+if(process.env.NODE_ENV === "production"){
+
+  //Set static folder
+
+app.use(express.static("client/build"))
+
+app.get("*",(req,res) => {
+
+  res.sendFile(path.resolve(__dirname,"client", "build", "index.html"))
+})
+}
+
 
 //Poner el puerto en una variable de entorno para cuando se deploye,
 // localmente se va a conectar al puerto 5000

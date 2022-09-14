@@ -1,0 +1,7 @@
+{
+  "mongoURI":"mongodb+srv://PedroAnido:PedroAnido1234@devconnector.hqqbv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "pedroanidoenbicicleta",
+  "githubClientId": "0c17509596c29ac0bf14",
+  "githubSecret": "5e7037689b673d62ba7186a865626390937a48d5"
+ 
+ }

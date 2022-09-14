@@ -41,6 +41,7 @@ const Dashboard = () => {
           <Experience experience={profile.profile.experience} />
           <Education education={profile.profile.education} />
           <Language language={profile.profile.language} />
+
           <div className='my-2'>
             <button
               className='btn btn-danger'

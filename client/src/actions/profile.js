@@ -72,7 +72,7 @@ export const clearProfile = () => (dispatch) => {
   });
 };
 
-export const createProfile = (formData, history, edit) => async (dispatch) => {
+export const createProfile = (formData, hist, edit) => async (dispatch) => {
   try {
     const res = await axios.post("/api/profile", formData);
 
@@ -83,7 +83,7 @@ export const createProfile = (formData, history, edit) => async (dispatch) => {
 
     if (!edit) {
       dispatch(setAlertAction("Perfil creado", "success", 4000));
-      return history("/dashboard");
+      return hist("/dashboard");
     }
     dispatch(setAlertAction("Perfil actualizado", "success", 4000));
   } catch (err) {
