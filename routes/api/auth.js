@@ -8,8 +8,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 router.get("/", auth, async (req, res) => {
-   // console.log( req.user.id)
-    //console.log("Request desde router express" + " " + req)
+
     
   try {
 
