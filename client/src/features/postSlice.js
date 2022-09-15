@@ -44,7 +44,7 @@ export const postSlice = createSlice({
 
     
     removeComment: (state, action) => {
-      state.post.comments = action.payload
+      state.post.comments = state.post.comments.filter(com => com._id !== action.payload);
       state.loading = false;
     },
 
