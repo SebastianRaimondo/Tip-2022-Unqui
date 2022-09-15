@@ -36,6 +36,20 @@ export const postSlice = createSlice({
       state.loading = false;
     },
 
+
+    addComment: (state, action) => {
+      state.posts = [action.payload, ...state.posts.comment]
+      state.loading = false;
+    },
+
+    
+    removeComment: (state, action) => {
+      state.posts = [action.payload, ...state.posts]
+      state.loading = false;
+    },
+
+
+
     updateLikes: (state, action) => {
       state.posts = state.posts.map((post) =>
         post._id === action.payload.id

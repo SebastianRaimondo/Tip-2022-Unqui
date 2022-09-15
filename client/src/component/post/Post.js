@@ -6,6 +6,8 @@ import { Link, useParams } from "react-router-dom";
 import PostDiscussion from "../posts/PostDiscussion";
 import { selectLoading, selectPost } from "../../features/postSlice";
 import { userLoaded } from "../../actions/auth";
+import CommentForm from "./CommentForm";
+import CommentItem from "./CommentItem"
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -32,6 +34,15 @@ const Post = () => {
         Regresar a posts
       </Link>
      <PostDiscussion post={post} />
+     <CommentForm postId={post._id} />
+
+     <div className="comments">
+      {post.comments.map(comment => (
+      <CommentItem key={comment._id} comment={comment} postId={post._id}/>  
+      ))}
+
+
+     </div>
     </div>
   );
 

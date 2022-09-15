@@ -158,9 +158,16 @@ router.put('/unlike/:id', auth, async (req, res) => {
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
+
+      console.log(req.user.id)
+      console.log(req.params.id)
+
       try {
-        const user = await User.findById(req.user.id).select("-password");
+        const user = await User.findById(req.user.id).select('-password');
         const post = await Post.findById(req.params.id);
+       
+        console.log(user)
+        //console.log(post)
 
         const newComment = {
           text: req.body.text,
@@ -169,15 +176,18 @@ router.put('/unlike/:id', auth, async (req, res) => {
           user: req.user.id,
         };
 
-        console.log(newComment);
+
+        console.log("Pedrito Anido")
 
         post.comments.unshift(newComment);
 
-        post.save();
+        await post.save();
+
         res.json(post.comments);
+
       } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server Error");
+        res.status(500).send("Server Error caca");
       }
     }
   );
