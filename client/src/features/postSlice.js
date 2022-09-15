@@ -38,13 +38,13 @@ export const postSlice = createSlice({
 
 
     addComment: (state, action) => {
-      state.posts = [action.payload, ...state.posts.comment]
+      state.post.comments = action.payload
       state.loading = false;
     },
 
     
     removeComment: (state, action) => {
-      state.posts = [action.payload, ...state.posts]
+      state.post.comments = action.payload
       state.loading = false;
     },
 
@@ -64,10 +64,6 @@ export const postSlice = createSlice({
 
 export const selectPosts = (state) => state.post.posts;
 export const selectLoading = (state) => state.post.loading;
-
 export default postSlice.reducer;
-//export const selectProfiles = (state) => state.profile.profiles;
-//export default profileSlice.reducer;
 export const selectPost = (state) => state.post.post;
-//export const selectProfile = (state) => state.profile.profile;
-//export const selectRepos = (state) => state.profile.repos;
+

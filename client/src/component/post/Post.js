@@ -37,8 +37,8 @@ const Post = () => {
      <CommentForm postId={post._id} />
 
      <div className="comments">
-      {post.comments.map(comment => (
-      <CommentItem key={comment._id} comment={comment} postId={post._id}/>  
+      {post.comments.map(com => (
+      <CommentItem key={com._id} comment={com} postId={post._id}/>  
       ))}
 
 
