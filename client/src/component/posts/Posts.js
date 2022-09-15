@@ -15,9 +15,7 @@ const Posts = () => {
  // const likes = useSelector((state) => state.post.posts.likes);
   const loading = useSelector(selectLoading);
 
- // console.log(posts);
- // console.log(likes);
-  //console.log(loading)
+
 
   useEffect(() => {
     dispatch(getPosts());
