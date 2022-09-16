@@ -11,6 +11,7 @@ import { Fragment } from "react";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
 import ProfileGithub from "./ProfileGithub";
+import ProfileLanguage from "./ProfileLanguage";
 
 const Profile = () => {
   const { id } = useParams();
@@ -42,11 +43,21 @@ const Profile = () => {
               </Link>
             )}
 
+
           <div className='profile-grid my-1'>
+          
             {profile !== null && (
               <>
+              
                 <ProfileTop profile={profile} />
+               
                 <ProfileAbout profile={profile} />
+              
+
+                
+
+               
+             
 
                 <div className='profile-exp bg-white p-2'>
                   <h2 className='text-primary'>Experiencia</h2>
@@ -67,7 +78,7 @@ const Profile = () => {
                 <div className='profile-edu bg-white p-2'>
                   <h2 className='text-primary'>Educacion</h2>
 
-                  {profile.experience.length > 0 ? (
+                  {profile.education.length > 0 ? (
                     <Fragment>
                       {profile.education.map((education) => (
                         <ProfileEducation
