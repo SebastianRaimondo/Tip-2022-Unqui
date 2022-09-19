@@ -1,8 +1,9 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate,Link} from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { addExperience } from "../../actions/profile";
+import axios from "axios";
 
 const AddExperience = () => {
   const history = useNavigate();
@@ -16,7 +17,28 @@ const AddExperience = () => {
     to: "",
     current: false,
     description: "",
+    file: "",
   });
+
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    upload();
+  }, [image]);
+
+  const handleChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  const upload = () => {
+    const formDataUpload = new FormData();
+
+    formDataUpload.append("file", image);
+
+    axios
+      .post("/api/upload", formDataUpload)
+      .then((res) => setFormData({ ...formData, file: res.data }));
+  };
 
   const [toDateDisabled, toggleDisabled] = useState(false);
 
@@ -24,6 +46,8 @@ const AddExperience = () => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  console.log(formData);
 
   return (
     <section className='container'>
@@ -103,6 +127,11 @@ const AddExperience = () => {
             disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
+
+        <div className='form-group'></div>
+
+        <h4>Agregar imagen de la empresa</h4>
+        <input type='file' name='image' onChange={handleChange} />
         <div className='form-group'>
           <textarea
             name='description'
@@ -114,7 +143,9 @@ const AddExperience = () => {
           ></textarea>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <Link className="btn btn-light my-1" to="/dashboard">Regresar</Link>
+        <Link className='btn btn-light my-1' to='/dashboard'>
+          Regresar
+        </Link>
       </form>
     </section>
   );

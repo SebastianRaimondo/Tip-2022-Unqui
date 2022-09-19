@@ -185,7 +185,9 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, company, location, from, to, current, description } =
+
+  
+    const { title, company, location, from, to, current, description, file } =
       req.body;
 
     const newExperience = {
@@ -196,8 +198,9 @@ router.put(
       to,
       current,
       description,
+      file
     };
-
+  
     try {
       const profile = await Profile.findOne({ user: req.user.id });
       profile.experience.unshift(newExperience);

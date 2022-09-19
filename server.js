@@ -1,11 +1,17 @@
+
 //Importar express
+
 const express = require('express');
+const upload = require("./client/src/multer");
+
 
 //Importar connectDB
 const connectDB = require('./config/db');
 
 //Inicializar la variable con exprees
 const app = express();
+
+const router = express.Router();
 
 // Connect Database
 connectDB();
@@ -15,8 +21,6 @@ app.use(express.json({ extended: false}));
 
 const path = require("path")
 
-
-
 //Define Routes
 
 app.use('/api/users', require('./routes/api/users'));
@@ -24,7 +28,11 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
+app.post("/api/upload", upload(), (req,res) =>{
 
+  res.send(req.file.filename)
+
+})
 
 //Serve static assets in production
 

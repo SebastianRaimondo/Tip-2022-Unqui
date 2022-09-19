@@ -61,6 +61,9 @@ const ProfileSchema = new Schema({
       description: {
         type: String,
       },
+      file: {
+        type: String,
+      },
     },
   ],
   education: [

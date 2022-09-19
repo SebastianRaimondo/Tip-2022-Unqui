@@ -1,6 +1,8 @@
 import axios from "axios";
 import { setAlertAction } from "./alert";
 
+
+
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/profile/me");
@@ -101,11 +103,12 @@ export const createProfile = (formData, hist, edit) => async (dispatch) => {
 };
 
 export const addExperience = (formData, history) => async (dispatch) => {
+
+  
   try {
     const res = await axios.put(
-      "/api/profile/experience",
-      formData
-  
+      "/api/profile/experience",formData 
+       
     );
 
     dispatch({

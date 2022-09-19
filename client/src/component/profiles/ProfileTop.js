@@ -8,9 +8,16 @@ const ProfileTop = ({
     website,
     social,
     user: { name, avatar },
+    experience,
   },
 }) => {
-  console.log(website);
+  let file = "";
+
+  if (experience.length > 0) {
+    file = experience[0].file;
+  }
+
+  console.log(file);
   return (
     <div className='profile-top bg-primary p-2'>
       <img className='round-img my-1' src={avatar} alt='' />
@@ -18,6 +25,7 @@ const ProfileTop = ({
       <p className='lead'>
         {status} {company && <span> en {company}</span>}
       </p>
+      <img className='round-img' my-1 img src={`/images/${file}`} alt='' />
       <p>{location && <span>{location}</span>}</p>
 
       <div className='icons my-1'>
