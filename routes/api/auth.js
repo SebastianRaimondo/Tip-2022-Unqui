@@ -11,12 +11,8 @@ router.get("/", auth, async (req, res) => {
 
     
   try {
-
-    console.log("lo que le llega de id al monngoose" + " " + req.user.id)
-
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
-    console.log("respuesta del mongoose" + " " + user)
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

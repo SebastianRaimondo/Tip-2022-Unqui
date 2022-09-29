@@ -31,14 +31,10 @@ const AddLanguage = () => {
     "Avanzado",
   ];
 
-  const { level, language, school } = formData;
+  const { school } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  console.log(level);
-  console.log(language);
-  console.log(school);
 
   return (
     <section className='container'>
@@ -50,7 +46,7 @@ const AddLanguage = () => {
           dispatch(addLanguage(formData, history));
         }}
       >
-        <label for='school'>
+        <label>
           ¿En que Universidad o institucion estudiaste?
         </label>
         <br></br>
@@ -63,7 +59,7 @@ const AddLanguage = () => {
         />
 
         <div className='form-group'>
-          <label for='language'>
+          <label>
             Elige un idioma de la lista o ingresalo manualmente:
           </label>
           <br></br>
@@ -77,13 +73,13 @@ const AddLanguage = () => {
           ></input>
           <datalist id='languages'>
             {dataListLanguage.map((op) => (
-              <option>{op}</option>
+              <option key={op}>{op}</option>
             ))}
           </datalist>
         </div>
 
         <div>
-          <label for='Level'>Elige un nivel o ingresalo manualmente:</label>
+          <label>Elige un nivel o ingresalo manualmente:</label>
           <br></br>
           <input
             list='levels'
@@ -94,7 +90,7 @@ const AddLanguage = () => {
           ></input>
           <datalist id='levels'>
             {dataListLevel.map((op) => (
-              <option>{op}</option>
+              <option  key={op}>{op}</option>
             ))}
           </datalist>
         </div>

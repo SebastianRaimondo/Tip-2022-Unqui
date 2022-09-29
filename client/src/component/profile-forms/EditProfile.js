@@ -78,18 +78,16 @@ const {
     instagram
 } = formData
 
-console.log(formData)
+
 
 const onChange = e => setFormData({...formData, [e.target.name] : e.target.value})
 const edit = true
-//const formDataWithSkillsStrings = formData.skills
-//console.log(formData)
-//console.log(profile.skills.toString())
+
 const onSubmit = e => {
   e.preventDefault();
   dispatch(createProfile(formData,hist,edit))
 }
-//console.log(formData)
+
   return (
     <section className="container">
       <Alert/>

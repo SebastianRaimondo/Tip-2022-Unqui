@@ -6,7 +6,6 @@ module.exports = function(req, res, next){
     //Get token from header
     const token = req.header('x-auth-token');
 
-    console.log("el token desde el middleware auth" + " " + token)
     //Check if not token
     if(!token){
 
@@ -17,7 +16,6 @@ module.exports = function(req, res, next){
     try{
       const decoded = jwt.verify(token, config.get('jwtSecret'));
       req.user = decoded.user;
-      console.log("desde el decodificador middleware" + " " + req.user)
       next();
     }catch(err){
     

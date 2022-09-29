@@ -1,5 +1,4 @@
 import axios from "axios";
-import setAuthToken from "../features/setAuthToken";
 import { setAlertAction } from "./alert";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +25,6 @@ export const addLike = (id) => async (dispatch) => {
   try {
     const res = await axios.put(`/api/posts/like/${id}`);
 
-    console.log(res);
     dispatch({
       type: "post/updateLikes",
       payload: { id, likes: res.data },
@@ -60,7 +58,7 @@ export const removeLike = (id) => async (dispatch) => {
 //Delete post
 export const deletePost = (id) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/posts/${id}`);
+      await axios.delete(`/api/posts/${id}`);
 
     dispatch({
       type: "post/deletePost",
@@ -122,7 +120,7 @@ export const addComment = (postId,formData) => async (dispatch) => {
 // Delete comment
 export const deleteComment = (postId,commentId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
     dispatch({
       type: "post/removeComment",

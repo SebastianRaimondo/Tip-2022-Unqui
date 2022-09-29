@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import PostDiscussion from "../posts/PostDiscussion";
 import { selectLoading, selectPost } from "../../features/postSlice";
-import { userLoaded } from "../../actions/auth";
 import CommentForm from "./CommentForm";
 import CommentItem from "./CommentItem"
 
@@ -14,10 +13,7 @@ const Post = () => {
   const post = useSelector(selectPost);
   const loading = useSelector(selectLoading);
   const id = useParams();
-  // console.log(id.id)
-  //console.log(post);
-  //console.log(loading);
-
+ 
   useEffect(() => {
 
     dispatch(getPost(id.id));

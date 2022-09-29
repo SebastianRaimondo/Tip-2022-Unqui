@@ -1,7 +1,6 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../../actions/post";
-import { selectPosts } from "../../features/postSlice";
 import Spinner from "../layout/Spinner";
 import { selectLoading } from "../../features/postSlice";
 import PostItem from "./PostItem";
@@ -10,9 +9,7 @@ import PostForm from "./PostForm";
 
 const Posts = () => {
   const dispatch = useDispatch();
-
   const posts = useSelector((state) => state.post.posts);
- // const likes = useSelector((state) => state.post.posts.likes);
   const loading = useSelector(selectLoading);
 
 

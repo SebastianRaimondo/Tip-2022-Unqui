@@ -46,9 +46,7 @@ const AddExperience = () => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  console.log(formData);
-
+    
   return (
     <section className='container'>
       <h1 className='large text-primary'>Agrega tu experiencia</h1>

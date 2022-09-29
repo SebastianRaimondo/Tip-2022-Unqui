@@ -11,7 +11,7 @@ import { Fragment } from "react";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
 import ProfileGithub from "./ProfileGithub";
-import ProfileLanguage from "./ProfileLanguage";
+
 
 const Profile = () => {
   const { id } = useParams();
@@ -52,12 +52,6 @@ const Profile = () => {
                 <ProfileTop profile={profile} />
                
                 <ProfileAbout profile={profile} />
-              
-
-                
-
-               
-             
 
                 <div className='profile-exp bg-white p-2'>
                   <h2 className='text-primary'>Experiencia</h2>

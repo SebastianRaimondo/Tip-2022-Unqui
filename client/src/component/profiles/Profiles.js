@@ -11,10 +11,6 @@ const Profiles = () => {
   const loading = useSelector(selectLoading);
   const profiles = useSelector(selectProfiles);
 
-  // console.log(profiles)
-   
-   //console.log(loading)
-
   useEffect(() => {
     dispatch(getProfiles());
   }, []);

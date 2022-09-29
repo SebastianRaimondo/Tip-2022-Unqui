@@ -8,8 +8,7 @@ const CommentForm = props => {
 
   const dispatch = useDispatch();
   const [text, setText] = useState("");
-  console.log(props.postId)
-
+  
   return (
     <div className="post-form">
     <div className="bg-primary p">

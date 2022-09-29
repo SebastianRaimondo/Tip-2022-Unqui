@@ -159,25 +159,16 @@ router.put('/unlike/:id', auth, async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
       }
 
-      console.log(req.user.id)
-      console.log(req.params.id)
-
       try {
         const user = await User.findById(req.user.id).select('-password');
         const post = await Post.findById(req.params.id);
        
-        console.log(user)
-        //console.log(post)
-
         const newComment = {
           text: req.body.text,
           name: user.name,
           avatar: user.avatar,
           user: req.user.id,
         };
-
-
-        console.log("Pedrito Anido")
 
         post.comments.unshift(newComment);
 
