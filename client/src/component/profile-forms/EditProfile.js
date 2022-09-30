@@ -134,7 +134,7 @@ const onSubmit = e => {
         >
       </div>
       <div className="form-group">
-        <input type="text" placeholder="* Habilidades" name="skills" value={skills} onChange={e => onChange(e)}/>
+        <input type="text" placeholder="* Habilidades" name="skills" value={skills.toUpperCase()} onChange={e => onChange(e)}/>
         <small className="form-text"
           >Utilice valores separados por comas (ej.
           HTML,CSS,JavaScript,PHP)</small

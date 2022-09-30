@@ -25,19 +25,13 @@ const Profiles = () => {
 
  let results = [] 
  
- const includesKill = (skills) =>{
-   skills.includes(search)
- }
-
-//console.log(results[0])
 
  if(!search){
   results = profiles
  }else{
- results = profiles.filter(pro => pro.skills.find(el => el.includes(search)))
+ results = profiles.filter(pro => pro.skills.find(el => el.includes(search.toUpperCase())))
+ 
  }
-
-console.log(profiles)
 
   return (
     <div className="container">
