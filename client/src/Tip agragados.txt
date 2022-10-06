@@ -1,0 +1,11 @@
+Cosas que pidio Fede:
+
+1- Agregar Axios Interceptor para setearle el token a todas las requests
+
+2- En la pantalla del "Dashboard" agregar idiomas y nivel de idioma, los idiomas se eligen desde una lista con opciones
+   y si no existiera el idioma se debe poder agregar a mano, los niveles pueden elegirse de una lista de cinco nivels}
+
+3- Poder subir imagenes usando la biblioteca "Multer" y luego mostrar la imagen en el perfil como parte de la experiencia
+   de trabajo
+
+4- Poder hacer una busqueda de perfiles filtrando por habilidades "Skills"
