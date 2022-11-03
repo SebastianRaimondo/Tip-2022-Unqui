@@ -21,3 +21,7 @@ Para cambiar el puerto en el que la api llama al servicio hay que modificar la v
 
 Para configurar la conexion a la base de datos se debe modificar la variable "mongoURI" en el archivo
  "default.json" en la carpeta config que se encuentra en el root del proyecto
+
+ ## Para correr la aplicacion
+
+En  la raiz del proyecto ejecutar el comando "run dev", con ese comando se corren el servidor y el cliente de forma concurrente gracias a la biblioteca "concurrently"
