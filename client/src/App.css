@@ -1,10 +1,11 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
-  --dark-color: #343a40;
-  --light-color: #f4f4f4;
+  --primary-color: hsl(0, 42%, 41%);
+  --dark-color: #101011;
+  --light-color: hsl(0, 39%, 33%);
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --text-other: #dddddd;
 }
 
 * {
@@ -67,12 +68,14 @@ img {
 }
 
 .text-primary {
-  color: var(--primary-color);
+  color: var(--text-other
+  );
 }
 
 .text-dark {
   color: var(--dark-color);
 }
+
 
 /* Padding */
 .p {
@@ -137,6 +140,8 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .badge {
@@ -170,7 +175,7 @@ img {
 .badge-light,
 .alert-light {
   background: var(--light-color);
-  color: #333;
+  color: rgb(223, 209, 209);
 }
 
 .btn-dark,
@@ -207,7 +212,8 @@ img {
 }
 
 .btn:hover {
-  opacity: 0.8;
+ 
+  transform: translateY(-3px);
 }
 
 .bg-light,
@@ -359,6 +365,8 @@ button {
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
 }
 
 /* Profile Page */
@@ -370,6 +378,7 @@ button {
     'exp edu'
     'github github';
   grid-gap: 1rem;
+ 
 }
 
 .profile-top {
@@ -408,15 +417,18 @@ button {
 
 .profile-exp {
   grid-area: exp;
+  border-radius: 5px;
 }
 
 .profile-edu {
   grid-area: edu;
+  border-radius: 5px;
 }
 
 .profile-exp h2,
 .profile-edu h2 {
   margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 .profile-exp > div,
@@ -424,6 +436,7 @@ button {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: #ccc 1px dotted;
+  border-radius: 5px;
 }
 
 .profile-exp > div:last-child,
@@ -438,10 +451,12 @@ button {
 
 .profile-github {
   grid-area: github;
+  border-radius: 5px;
 }
 
 .profile-github .repo {
   display: flex;
+  border-radius: 5px;
 }
 
 .profile-github .repo > div:first-child {

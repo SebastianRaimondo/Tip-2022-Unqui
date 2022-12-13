@@ -52,7 +52,7 @@ const Navbar = () => {
     <nav className='navbar bg-dark'>
       <h1>
         <Link to='/'>
-          <i className='fas fa-code'> DevConnector</i>
+          <i className='fas fa-bug'> Anidator 5.0</i>
         </Link>
       </h1>
       {!authState.loading && (
