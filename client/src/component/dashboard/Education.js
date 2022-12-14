@@ -38,7 +38,7 @@ const Education = ({ education }) => {
             <th>Universidad </th>
             <th className='hide-sm'>Grado</th>
             <th className='hide-sm'>Años</th>
-            <th />
+            <th className='hide-sm'>Acción</th>
           </tr>
         </thead>
         <tbody>{educations}</tbody>

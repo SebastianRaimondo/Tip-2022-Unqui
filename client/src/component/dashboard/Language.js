@@ -30,7 +30,7 @@ const Language = ({ language }) => {
             <th>Universidad o institucion</th>
             <th className='hide-sm'>Idioma</th>
             <th className='hide-sm'>Nivel</th>
-            <th />
+            <th className='hide-sm'>Acción</th>
           </tr>
         </thead>
         <tbody>{languages}</tbody>

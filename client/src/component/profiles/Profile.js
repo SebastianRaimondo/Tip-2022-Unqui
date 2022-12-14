@@ -30,7 +30,7 @@ const Profile = () => {
         <Spinner />
       ) : (
         <div>
-          <Link to='/profiles' className='btn bnt-light'>
+          <Link to='/profiles' className='btn bnt-light '>
             Volver a perfiles
           </Link>
 

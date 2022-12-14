@@ -142,6 +142,7 @@ img {
   outline: none;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color:white
 }
 
 .badge {
@@ -206,7 +207,7 @@ img {
 .bg-white,
 .badge-white,
 .alert-white {
-  background: #fff;
+  background: rgb(241, 236, 234);
   color: #333;
   border: #ccc solid 1px;
 }
@@ -223,6 +224,12 @@ img {
 
 .round-img {
   border-radius: 50%;
+  box-shadow: rgba(248, 0, 41, 0.445) 0px 5px 15px;
+}
+
+.round-img-disc {
+  border-radius: 50%;
+  box-shadow: rgba(49, 47, 47, 0.445) 0px 5px 15px;
 }
 
 .line {
@@ -299,6 +306,9 @@ button {
 .table td {
   padding: 1rem;
   text-align: left;
+  color:white;
+  background: var(--light-color);
+  
 }
 
 .table th {
@@ -378,6 +388,7 @@ button {
     'exp edu'
     'github github';
   grid-gap: 1rem;
+  
  
 }
 
@@ -392,6 +403,8 @@ button {
 
 .profile-top img {
   width: 250px;
+  border:solid 1px #2b2828 
+
 }
 
 .profile-top .icons a {
@@ -406,6 +419,7 @@ button {
 .profile-about {
   grid-area: about;
   text-align: center;
+  
 }
 
 .profile-about .skills {
@@ -488,6 +502,7 @@ button {
 
 .post img {
   width: 100px;
+
 }
 
 .post .comment-count {
@@ -496,6 +511,9 @@ button {
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
   font-size: 0.8rem;
+  color:white
+
+  
 }
 
 .post .post-date {
