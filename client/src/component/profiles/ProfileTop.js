@@ -24,7 +24,9 @@ const ProfileTop = ({
       <p className='lead'>
         {status} {company && <span> en {company}</span>}
       </p>
-      <img className='round-img' src={`/images/${file}`} alt='' />
+     
+      <img className='round-img-Ptop ' src={`/images/${file}`} alt='' />
+      
       <p>{location && <span>{location}</span>}</p>
 
       <div className='icons my-1'>

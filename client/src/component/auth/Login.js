@@ -43,13 +43,13 @@ const Login = () => {
        <Alert/>
       <h1 className='large text-primary'>Ingresar</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Ingresa a tu cuenta
+        <i className='fas fa-user'></i> Ingresá a tu cuenta
       </p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='email'
-            placeholder='Correo electronico'
+            placeholder='Correo electrónico'
             onChange={(e) => onChange(e)}
             value={email}
             
@@ -71,7 +71,7 @@ const Login = () => {
         <input type='submit' className='btn btn-primary' value='Aceptar' />
       </form>
       <p className='my-1'>
-        ¿No tienes una cuenta? <Link to='/register'>Registrarse</Link>
+        ¿No tenés una cuenta? <Link to='/register'>Registrarse</Link>
       </p>
     </section>
   );

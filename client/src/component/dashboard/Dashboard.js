@@ -53,7 +53,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div>
-          <p>Aun no has creado tu perfil, por favor agrega informacion</p>
+          <p>Aún no has creado tu perfil, por favor agregá información</p>
 
           <Link to='/create-profile' className='btn btn-primary my-1'>
             Crear perfil

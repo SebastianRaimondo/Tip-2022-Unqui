@@ -27,7 +27,7 @@ const Language = ({ language }) => {
       <table className='table'>
         <thead>
           <tr>
-            <th>Universidad o institucion</th>
+            <th>Universidad o institución</th>
             <th className='hide-sm'>Idioma</th>
             <th className='hide-sm'>Nivel</th>
             <th className='hide-sm'>Acción</th>

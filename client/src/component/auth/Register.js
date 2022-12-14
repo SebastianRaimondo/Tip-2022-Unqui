@@ -46,7 +46,7 @@ export const Register = () => {
     <Alert/>
       <h1 className='large text-primary'>Registrarse</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Crea tu cuenta
+        <i className='fas fa-user'></i> Creá tu cuenta
       </p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
@@ -63,7 +63,7 @@ export const Register = () => {
         <div className='form-group'>
           <input
             type='email'
-            placeholder='Correo electronico'
+            placeholder='Correo electrónico'
             onChange={(e) => onChange(e)}
             value={email}
         
@@ -72,7 +72,7 @@ export const Register = () => {
           />
 
           <small className='form-text'>
-            Este sitio utiliza Gravatar, si quieres una imagen de perfil, puedes
+            Este sitio utiliza Gravatar, si querés una imagen de perfil, podés
             usar el email de Gravatar
           </small>
         </div>
@@ -103,7 +103,7 @@ export const Register = () => {
         <input type='submit' className='btn btn-primary' value='Registrarse' />
       </form>
       <p className='my-1'>
-        ¿Ya tienes una cuenta? <Link to='/login'>Ingresar</Link>
+        ¿Ya tenés una cuenta? <Link to='/login'>Ingresar</Link>
       </p>
       </div>
   );

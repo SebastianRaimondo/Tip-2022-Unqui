@@ -11,7 +11,7 @@ export const DashboardActions = () => {
           ><i className="fab fa-black-tie text-primary"></i> Agregar Experiencia</Link>
 
         <Link to="/add-education" className="btn btn-light">   
-         <i className="fas fa-graduation-cap text-primary"></i> Agregar Educacion</Link>
+         <i className="fas fa-graduation-cap text-primary"></i> Agregar Educación</Link>
 
          <Link to="/add-language" className="btn btn-light">   
          <i className="fas fa-language text-primary"></i> Agregar Nivel de idioma</Link>

@@ -30,7 +30,7 @@ const Education = ({ education }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'> Credenciales de educacion</h2>
+      <h2 className='my-2'> Credenciales de educación</h2>
 
       <table className='table'>
         <thead>

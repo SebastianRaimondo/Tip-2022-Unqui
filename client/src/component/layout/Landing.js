@@ -18,13 +18,13 @@ const Landing = () => {
     <section className="landing">
     <div className="dark-overlay">
       <div className="landing-inner">
-        <h1 className="x-large">Developer Connector</h1>
+        <h1 className="x-large">Anidator 5.0</h1>
         <p className="lead">
-          Crea un perfil/portfolio de desarrollador, comparte posts e interactua con otros desarrolladores
+          Creá un perfil/portfolio de desarrollador, compartí posts e interactuá con otros desarrolladores
         </p>
         <div className="buttons">
         <Link to='/register' className="btn btn-primary">Registrate</Link>
-        <Link to='/login' className="btn btn-light">Inicia sesion</Link>
+        <Link to='/login' className="btn btn-light">Inicia sesión</Link>
     
         </div>
       </div>

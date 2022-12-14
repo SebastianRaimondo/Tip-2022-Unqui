@@ -35,8 +35,8 @@ const Experience = ({ experience }) => {
       <table className='table'>
         <thead>
           <tr>
-            <th>Compañia</th>
-            <th className='hide-sm'>Titulo</th>
+            <th>Compañía</th>
+            <th className='hide-sm'>Título</th>
             <th className='hide-sm'>Años</th>
             <th className='hide-sm'>Acción</th>
           </tr>

@@ -70,7 +70,7 @@ const Profile = () => {
                   )}
                 </div>
                 <div className='profile-edu bg-white p-2'>
-                  <h2 className='text-primary'>Educacion</h2>
+                  <h2 className='text-primary'>Educación</h2>
 
                   {profile.education.length > 0 ? (
                     <Fragment>
@@ -82,7 +82,7 @@ const Profile = () => {
                       ))}
                     </Fragment>
                   ) : (
-                    <h4>No hay educacion que mostrar</h4>
+                    <h4>No hay educación que mostrar</h4>
                   )}
                 </div>
 

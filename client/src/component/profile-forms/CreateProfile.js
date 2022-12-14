@@ -56,12 +56,12 @@ const onSubmit = e => {
     <section className="container">
       <Alert/>
     <h1 className="large text-primary">
-      Crea tu Perfil
+      Creá tu Perfil
     </h1>
     <p className="lead">
-      <i className="fas fa-user"></i> Vamos a obtener un poco de información para hacer su perfil destacado
+      <i className="fas fa-user"></i> Vamos a obtener un poco de información para hacer que tu perfil sea más destacado
     </p>
-    <small>* = campo requerido</small>
+    <small>* = Campo requerido</small>
     <form className="form" onSubmit={e => onSubmit(e)}>
       <div className="form-group">
         <select name="status" value={status} onChange={e => onChange(e)}>
@@ -76,19 +76,19 @@ const onSubmit = e => {
           <option value="Other">Otro</option>
         </select>
         <small className="form-text"
-          >Danos una idea de dónde te encuentras en tu carrera</small
+          >Danos una idea de dónde te encontras en tu carrera</small
         >
       </div>
       <div className="form-group">
-        <input type="text" placeholder="Compañia" name="company"  value={company} onChange={e => onChange(e)}/>
+        <input type="text" placeholder="Compañía" name="company"  value={company} onChange={e => onChange(e)}/>
         <small className="form-text"
-          >Podría ser su propia empresa o una para la que trabaja</small
+          >Podría ser tu propia empresa o una para la que trabajás</small
         >
       </div>
       <div className="form-group">
         <input type="text" placeholder="Website" name="website" value={website} onChange={e => onChange(e)}/>
         <small className="form-text"
-          >Podría ser su propio sitio web o el de una empresa</small
+          >Podría ser tu propio sitio web o el de una empresa</small
         >
       </div>
       <div className="form-group">
@@ -111,12 +111,12 @@ const onSubmit = e => {
           name="githubusername" value={githubusername} onChange={e => onChange(e)}
         />
         <small className="form-text"
-          >Si quieres tus últimos repositorios y un enlace de Github, incluye tu nombre de usuario</small
+          >Si querés tus últimos repositorios y un enlace de Github, incluí tu nombre de usuario</small
         >
       </div>
       <div className="form-group">
         <textarea placeholder="Algo corto sobre tu biografia" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
-        <small className="form-text">Cuéntanos un poco sobre ti</small>
+        <small className="form-text">Contanos un poco sobre vos</small>
       </div>
 
       <div className="my-2">

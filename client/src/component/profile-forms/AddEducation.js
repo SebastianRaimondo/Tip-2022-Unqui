@@ -27,11 +27,11 @@ const AddEducation = () => {
 
   return (
     <section className='container'>
-      <h1 className='large text-primary'>Agrega tu educacion</h1>
+      <h1 className='large text-primary'>Agregá tu educación</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch'></i> Agrega tus estudios o bootcamp
+        <i className='fas fa-code-branch'></i> Agregá tus estudios o bootcamp
       </p>
-      <small>* = campo requerido</small>
+      <small>* = Campo requerido</small>
       <form
         className='form'
         onSubmit={(e) => {
@@ -52,7 +52,7 @@ const AddEducation = () => {
         <div className='form-group'>
           <input
             type='text'
-            placeholder='* Grado o certificacion'
+            placeholder='* Grado o certificación'
             name='degree'
             value={degree}
             onChange={(e) => onChange(e)}
@@ -107,7 +107,7 @@ const AddEducation = () => {
             name='description'
             cols='30'
             rows='5'
-            placeholder='Descripcion'
+            placeholder='Descripción'
             value={description}
             onChange={(e) => onChange(e)}
           ></textarea>

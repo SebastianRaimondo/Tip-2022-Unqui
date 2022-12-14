@@ -49,12 +49,12 @@ const AddExperience = () => {
     
   return (
     <section className='container'>
-      <h1 className='large text-primary'>Agrega tu experiencia</h1>
+      <h1 className='large text-primary'>Agregá tu experiencia</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch'></i> Agrega categoria de programador o
+        <i className='fas fa-code-branch'></i> Agregá categoria de programador o
         desarrollador que hayas tenido
       </p>
-      <small>* = campo requerido</small>
+      <small>* = Campo requerido</small>
       <form
         className='form'
         onSubmit={(e) => {
@@ -75,7 +75,7 @@ const AddExperience = () => {
         <div className='form-group'>
           <input
             type='text'
-            placeholder='* Compañia'
+            placeholder='* Compañía'
             name='company'
             value={company}
             onChange={(e) => onChange(e)}
@@ -85,7 +85,7 @@ const AddExperience = () => {
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Ubicacion'
+            placeholder='Ubicación'
             name='location'
             value={location}
             onChange={(e) => onChange(e)}
@@ -135,7 +135,7 @@ const AddExperience = () => {
             name='description'
             cols='30'
             rows='5'
-            placeholder='Descripcion del empleo'
+            placeholder='Descripción del empleo'
             value={description}
             onChange={(e) => onChange(e)}
           ></textarea>

@@ -12,7 +12,7 @@ const PostForm = () => {
   return (
     <div className="post-form">
     <div className="bg-primary p">
-      <h3>Escribe algo...</h3>
+      <h3>Escribí algo...</h3>
     </div>
     <form className="form my-1" onSubmit={e =>{
       e.preventDefault();

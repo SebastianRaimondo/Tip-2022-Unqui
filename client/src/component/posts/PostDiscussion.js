@@ -1,8 +1,6 @@
 import React , {useEffect} from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
-import {  useSelector } from "react-redux";
-import { selectAuth } from "../../features/userLogginSlice";
 
 
 const PostDiscussion = ({

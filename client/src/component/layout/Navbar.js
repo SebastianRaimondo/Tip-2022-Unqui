@@ -38,7 +38,7 @@ const Navbar = () => {
         <Link to='/register'>Registrate</Link>
       </li>
       <li>
-        <Link to='/login'>Inicia sesion</Link>
+        <Link to='/login'>Inicia sesión</Link>
       </li>
       <li>
         <Link to='/profiles'>Desarrolladores</Link>
